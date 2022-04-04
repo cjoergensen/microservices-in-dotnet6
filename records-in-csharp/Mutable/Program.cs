@@ -5,7 +5,7 @@ Console.WriteLine(person);
 
 person.Name = "Jane Doe";
 Console.WriteLine(person);
-
+ 
 public record Person
 {
     public string Name { get; set; }
