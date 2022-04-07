@@ -1,0 +1,70 @@
+﻿@page "/profile"
+@inject HttpClient httpClient
+
+
+<PageTitle>Your Profile</PageTitle>
+
+
+<div class="card m-1">
+    <h4 class="card-header">Your info</h4>
+    <div class="card-body">
+        <EditForm Model="@profile">
+            <div class="form-group col-3">
+                <label class="form-label">Email</label>
+                <InputText @bind-Value="profile.Name" class="form-control" />
+            </div>
+
+            <div class="form-row col-3">
+                <label class="form-label">Date of Birth</label>
+                <InputDate @bind-Value="profile.DateOfBirth" class="form-control" />
+            </div>
+
+            <br />
+            <button type="submit" class="btn btn-primary">Update</button>
+        </EditForm>
+    </div>
+</div>
+
+
+<div class="card m-1">
+    <h4 class="card-header">Notifications</h4>
+    <div class="card-body">
+        <EditForm Model="@profile.NotificationSettings">
+            <div class="form-group col-3">
+                <label for="email" class="form-label">Email address</label>
+                <InputText id="email" @bind-Value="profile.NotificationSettings.Email" class="form-control" />
+            </div>
+
+
+            <div class="form-group col-3">
+                <label for="phonenumber" class="form-label">Phone number</label>
+                <InputText id="phonenumber" @bind-Value="profile.NotificationSettings.Phonenumber" class="form-control"  />
+            </div>
+
+            <div class="form-group col-3">
+                <label for="communicationChannel" class="form-label">Prefered Communication Channel</label>
+                <InputSelect id="communicationChannel" @bind-Value="profile.NotificationSettings.PreferedCommunicationChannel" class="form-select">
+                    <option value="@SelfService.WebApp.Shared.Models.CommunicationChannel.Email">Email</option>
+                    <option value="@SelfService.WebApp.Shared.Models.CommunicationChannel.Phonenumber">Phonenumber</option>
+                </InputSelect>
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Update</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private SelfService.WebApp.Shared.Models.Profile profile = new()
+    {
+        CustomerId = 1,
+        Name = "Christian Jørgensen",
+        DateOfBirth = DateTimeOffset.Now.AddYears(-30),
+        NotificationSettings = new()
+        {
+            Email = "cjoergensen@live.com",
+            Phonenumber = "12345678",
+            PreferedCommunicationChannel = WebApp.Shared.Models.CommunicationChannel.Email
+        }
+    };
+}
