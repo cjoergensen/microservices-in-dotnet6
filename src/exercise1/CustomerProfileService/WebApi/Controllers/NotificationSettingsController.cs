@@ -23,6 +23,7 @@ public class NotificationSettingsController : ControllerBase
         if(settings == null)
             return new NotFoundResult();
 
-        return new ObjectResult(new GetNotificationSettingsResponse(settings.PhoneNumber, settings.Email, CustomerProfileService.Contracts.PreferedCommunicationChannel.Phonenumber));
+        return new ObjectResult(new GetNotificationSettingsResponse(settings.CustomerId, settings.PhoneNumber, 
+            settings.Email, CustomerProfileService.Contracts.PreferedCommunicationChannel.Phonenumber));
     }
 }

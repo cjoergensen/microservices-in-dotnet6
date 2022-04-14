@@ -4,7 +4,7 @@ namespace ConsumptionSubscriptionService.Controllers;
 [Route("[controller]")]
 public class SubscriptionController : ControllerBase
 {
-    public IActionResult Create(CreateSubscriptionCommand createSubscriptionCommand)
+    public IActionResult Create()
     {
         // Retrieve prefered communication channel from customer profile service
 

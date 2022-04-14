@@ -4,8 +4,8 @@
     "CustomerProfileService.WebApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "swagger",
+      "launchBrowser": false,
+      "launchUrl": "",
       "applicationUrl": "https://localhost:8001;",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

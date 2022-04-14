@@ -4,29 +4,39 @@
 
 <PageTitle>Your Profile</PageTitle>
 
+@if(CustomerProfile == null)
+{
+    <span>
+        Loading products...
+    </span>
+}
+else
+{
+    <div class="card m-1">
+        <h4 class="card-header">Your info</h4>
+        <div class="card-body">
+             <EditForm Model="@CustomerProfile">
+                <div class="form-group col-3">
+                    <label class="form-label">Name</label>
+                    <InputText @bind-Value="CustomerProfile.Name" class="form-control" />
+                </div>
 
-<div class="card m-1">
-    <h4 class="card-header">Your info</h4>
-    <div class="card-body">
-        <EditForm Model="@profile">
-            <div class="form-group col-3">
-                <label class="form-label">Email</label>
-                <InputText @bind-Value="profile.Name" class="form-control" />
-            </div>
+                <div class="form-row col-3">
+                    <label class="form-label">Date of Birth</label>
+                    <InputDate @bind-Value="CustomerProfile.DateOfBirth" class="form-control" />
+                </div>
 
-            <div class="form-row col-3">
-                <label class="form-label">Date of Birth</label>
-                <InputDate @bind-Value="profile.DateOfBirth" class="form-control" />
-            </div>
-
-            <br />
-            <button type="submit" class="btn btn-primary">Update</button>
-        </EditForm>
+                <br />
+                <button type="submit" class="btn btn-primary">Update</button>
+            </EditForm>
+        </div>
     </div>
-</div>
+}
 
 
-<div class="card m-1">
+
+
+@*<div class="card m-1">
     <h4 class="card-header">Notifications</h4>
     <div class="card-body">
         <EditForm Model="@profile.NotificationSettings">
@@ -52,19 +62,4 @@
             <button type="submit" class="btn btn-primary">Update</button>
         </EditForm>
     </div>
-</div>
-
-@code {
-    private SelfService.WebApp.Shared.Models.Profile profile = new()
-    {
-        CustomerId = 1,
-        Name = "Christian Jørgensen",
-        DateOfBirth = DateTimeOffset.Now.AddYears(-30),
-        NotificationSettings = new()
-        {
-            Email = "cjoergensen@live.com",
-            Phonenumber = "12345678",
-            PreferedCommunicationChannel = WebApp.Shared.Models.CommunicationChannel.Email
-        }
-    };
-}
+</div>*@

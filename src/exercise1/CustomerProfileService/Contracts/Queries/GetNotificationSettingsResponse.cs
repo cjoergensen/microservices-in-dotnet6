@@ -1,3 +1,3 @@
 ﻿namespace CustomerProfileService.Contracts.Queries;
 
-public record GetNotificationSettingsResponse(string PhoneNumber, string Email, PreferedCommunicationChannel PreferedCommunicationChannel);
+public record GetNotificationSettingsResponse(int CustomerId, string PhoneNumber, string Email, PreferedCommunicationChannel PreferedCommunicationChannel);

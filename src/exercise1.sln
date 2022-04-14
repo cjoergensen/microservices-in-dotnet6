@@ -23,9 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "exercise1\Custome
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "exercise1\CustomerProfileService\Contracts\Contracts.csproj", "{A17EFC4F-E908-47B7-BA4A-D8435585D8AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "exercise1\CustomerProfileService\Data\Data.csproj", "{26FB382D-B92D-401F-BA2A-8832026263A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "exercise1\CustomerProfileService\Data\Data.csproj", "{26FB382D-B92D-401F-BA2A-8832026263A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "exercise1\CustomerProfileService\Models\Models.csproj", "{C92AFBF1-B8F7-42AC-8A1D-30535C7CAAFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "exercise1\CustomerProfileService\Models\Models.csproj", "{C92AFBF1-B8F7-42AC-8A1D-30535C7CAAFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
