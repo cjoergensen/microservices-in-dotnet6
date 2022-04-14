@@ -4,10 +4,12 @@
 
 <PageTitle>Your Profile</PageTitle>
 
+<h1>Profile</h1>
+
 @if(CustomerProfile == null)
 {
     <span>
-        Loading products...
+        Loading profile...
     </span>
 }
 else
@@ -31,35 +33,36 @@ else
             </EditForm>
         </div>
     </div>
+
+    <div class="card m-1">
+        <h4 class="card-header">Notifications</h4>
+        <div class="card-body">
+            <EditForm Model="@NotificationSettings">
+                <div class="form-group col-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <InputText id="email" @bind-Value="NotificationSettings.Email" class="form-control" />
+                </div>
+
+                <div class="form-group col-3">
+                    <label for="phonenumber" class="form-label">Phone number</label>
+                    <InputText id="phonenumber" @bind-Value="NotificationSettings.Phonenumber" class="form-control"  />
+                </div>
+
+                <div class="form-group col-3">
+                    <label for="communicationChannel" class="form-label">Prefered Communication Channel</label>
+                    <InputSelect id="communicationChannel" @bind-Value="NotificationSettings.PreferedCommunicationChannel" class="form-select">
+                        <option value="@SelfService.WebApp.Models.CommunicationChannel.Email">Email</option>
+                        <option value="@SelfService.WebApp.Models.CommunicationChannel.Phonenumber">Phonenumber</option>
+                    </InputSelect>
+                </div>
+
+                <br />
+                <button type="submit" class="btn btn-primary">Update</button>
+            </EditForm>
+        </div>
+    </div>
 }
 
 
 
 
-@*<div class="card m-1">
-    <h4 class="card-header">Notifications</h4>
-    <div class="card-body">
-        <EditForm Model="@profile.NotificationSettings">
-            <div class="form-group col-3">
-                <label for="email" class="form-label">Email address</label>
-                <InputText id="email" @bind-Value="profile.NotificationSettings.Email" class="form-control" />
-            </div>
-
-
-            <div class="form-group col-3">
-                <label for="phonenumber" class="form-label">Phone number</label>
-                <InputText id="phonenumber" @bind-Value="profile.NotificationSettings.Phonenumber" class="form-control"  />
-            </div>
-
-            <div class="form-group col-3">
-                <label for="communicationChannel" class="form-label">Prefered Communication Channel</label>
-                <InputSelect id="communicationChannel" @bind-Value="profile.NotificationSettings.PreferedCommunicationChannel" class="form-select">
-                    <option value="@SelfService.WebApp.Shared.Models.CommunicationChannel.Email">Email</option>
-                    <option value="@SelfService.WebApp.Shared.Models.CommunicationChannel.Phonenumber">Phonenumber</option>
-                </InputSelect>
-            </div>
-            <br />
-            <button type="submit" class="btn btn-primary">Update</button>
-        </EditForm>
-    </div>
-</div>*@

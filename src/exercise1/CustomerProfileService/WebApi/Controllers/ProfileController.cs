@@ -21,10 +21,13 @@ public class ProfileController : Controller
     [Route("{id?}")]
     public IActionResult Index([FromRoute]int? id)
     {
-        if (id is null)
+        if (!id.HasValue)
             return new BadRequestResult();
 
         var customerProfile = repository.Get(id.Value);
+        if (customerProfile == null)
+            return new NotFoundResult();
+
         return new ObjectResult(new GetCustomerProfileResponse(customerProfile.CustomerId, customerProfile.Name, customerProfile.DateOfBirth));
     }
 }

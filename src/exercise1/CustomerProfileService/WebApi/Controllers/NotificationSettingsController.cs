@@ -15,11 +15,14 @@ public class NotificationSettingsController : ControllerBase
         this.notificationSettingsRepository = notificationSettingsRepository;
     }
 
-    [HttpGet(Name = "GetNotificationSettings")]
-    public IActionResult Get([FromBody] GetNotificationSettingsRequest request)
+    [HttpGet]
+    [Route("{id?}")]
+    public IActionResult Get([FromRoute] int? id)
     {
-        // Query DB
-        var settings = notificationSettingsRepository.Get(request.CustomerId);
+        if (!id.HasValue)
+            return new BadRequestResult();
+
+        var settings = notificationSettingsRepository.Get(id.Value);
         if(settings == null)
             return new NotFoundResult();
 
