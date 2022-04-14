@@ -4,6 +4,6 @@ namespace CustomerProfileService.Data
 {
     public interface INotificationSettingsRepository
     {
-        NotificationSettings Get(int CustomerId);
+        NotificationSettings? Get(int CustomerId);
     }
 }

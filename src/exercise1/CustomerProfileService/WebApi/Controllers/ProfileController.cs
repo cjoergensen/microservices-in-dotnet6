@@ -28,6 +28,6 @@ public class ProfileController : Controller
         if (customerProfile == null)
             return new NotFoundResult();
 
-        return new ObjectResult(new GetCustomerProfileResponse(customerProfile.CustomerId, customerProfile.Name, customerProfile.DateOfBirth));
+        return new ObjectResult(new GetCustomerProfileResponse(customerProfile.CustomerId, customerProfile.Name, customerProfile.PhoneNumber, customerProfile.Email));
     }
 }

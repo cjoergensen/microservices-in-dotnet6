@@ -4,13 +4,21 @@ namespace SelfService.WebApp.Models;
 
 public class Profile
 {
-    public int CustomerId { get; set; }
+    public int CustomerId { get; }
 
     [Required]
-    public string? Name { get; set; }
-
+    public string Name { get; set; }
     [Required]
-    public DateTimeOffset DateOfBirth { get; set; }
+    public string PhoneNumber { get; set; }
+    [Required]
+    public string Email { get; set; }
 
-    public NotificationSettings NotificationSettings { get; set; }
+    public Profile(int customerId, string name, string phonenumber, string email)
+    {
+        CustomerId = customerId;
+        Name = name;
+        PhoneNumber = phonenumber;
+        Email = email;
+    }
+
 }

@@ -1,3 +1,3 @@
 ﻿namespace CustomerProfileService.Models;
 
-public record NotificationSettings(int CustomerId, string PhoneNumber, string Email, CommunicationChannel PreferedCommunicationChannel);
+public record NotificationSettings(int CustomerId, CommunicationChannel PreferedCommunicationChannel);

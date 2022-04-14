@@ -7,12 +7,7 @@ public class CustomerProfileRepository : ICustomerProfileRepository
 
     public CustomerProfile Get(int customerId)
     {
-        return new CustomerProfile
-        {
-            CustomerId = customerId,
-            Name = "John Doe",
-            DateOfBirth = DateTimeOffset.Now.AddYears(-30)
-        };
+        return new CustomerProfile(customerId, Name: "John Doe", PhoneNumber: "1234567", "test@test.com");
     }
 
 }

@@ -10,12 +10,12 @@ public class NotificationSettingsRepository : INotificationSettingsRepository
     {
         data = new List<NotificationSettings>
         {
-            new(1, "12345678", "test1@test.com", CommunicationChannel.Phonenumber),
-            new(2, "12345678", "test2@test.com", CommunicationChannel.Email)
+            new(1, CommunicationChannel.Phonenumber),
+            new(2, CommunicationChannel.Email)
         };
     }
 
-    public NotificationSettings Get(int CustomerId)
+    public NotificationSettings? Get(int CustomerId)
     {
         return data.SingleOrDefault(x => x.CustomerId == CustomerId);
     }
