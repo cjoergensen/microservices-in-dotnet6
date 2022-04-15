@@ -5,22 +5,29 @@
 <div class="card m-1">
     <h4 class="card-header">Notifications</h4>
     <div class="card-body">
+    @if(Subscriptions == null )
+    {
+        <span>Loading notifications...</span>
+    }
+    else
+    {
         <div class="row">
             <div class="col-sm">
                 <label class="form-label">Consumption alerts</label> 
             </div>
             <div class="col-sm">
-                <RadzenSwitch @bind-Value=@value Change=@OnChange class=align-middle />        
+                <RadzenSwitch @bind-Value=@AbnormalConsumption class=align-middle />        
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-sm">
+                <label class="form-label">Outage alerts [comming soon]</label> 
+            </div>
+            <div class="col-sm">
+                <RadzenSwitch Disabled class=align-middle />        
+            </div>
+        </div>
+    }
     </div>
 </div>
-
-@code {
-    bool value;
-
-    void OnChange(bool value)
-    {
-        Console.WriteLine($"Value changed to {value}");
-    }
-}

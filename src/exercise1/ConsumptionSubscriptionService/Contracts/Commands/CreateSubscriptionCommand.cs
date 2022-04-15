@@ -1,3 +1,3 @@
-﻿namespace ConsumptionSubscriptionService.Contracts.Commands;
+﻿namespace ConsumptionNotificationSubscriptionService.Contracts.Commands;
 
 public record CreateSubscription(Guid CustomerId);

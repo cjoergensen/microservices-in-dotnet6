@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>ConsumptionSubscriptionService.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <AssemblyName>ConsumptionNotificationSubscriptionService.Contracts</AssemblyName>
   </PropertyGroup>
 
 </Project>
