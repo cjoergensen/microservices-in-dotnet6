@@ -1,3 +1,4 @@
+using ConsumptionNotificationSubscriptionService.Contracts;
 using ConsumptionNotificationSubscriptionService.Data;
 using ConsumptionSubscriptionService.Contracts.Queries;
 
@@ -16,11 +17,6 @@ public class AbnormalConsumptionController : ControllerBase
         this.logger = logger;
     }
 
-    public IActionResult Create()
-    {
-        return new AcceptedResult();
-    }
-
     [HttpGet]
     [Route("{id?}")]
     public async Task<IActionResult> Get(int? id)
@@ -28,15 +24,39 @@ public class AbnormalConsumptionController : ControllerBase
         if (!id.HasValue)
             return new BadRequestResult();
 
-        var subscription = await repository.Get(id.Value);
+        var subscription = repository.Get(id.Value);
         if (subscription == null)
             return new NotFoundResult();
 
         return new ObjectResult(new GetAbnormalConsumptionSubscriptionResponse(subscription.CustomerId, subscription.CommunicationChannel, subscription.CreatedOn));
     }
 
-    //public IActionResult Delete()
-    //{
+    [HttpPut]
+    [Route("{id?}")]
+    public IActionResult Subscribe(int? id, [FromBody] CommunicationChannel communicationChannel)
+    {
+        if (!id.HasValue)
+            return new BadRequestResult();
 
-    //}
+        var subscription = repository.Get(id.Value);
+        if (subscription == null)
+        {
+            repository.Add(id!.Value, communicationChannel);
+            return new CreatedResult("", null);
+        }
+
+        repository.Update(id!.Value, communicationChannel);
+        return new NoContentResult();
+    }
+
+    [HttpDelete]
+    [Route("{id?}")]
+    public IActionResult Unsubscribe(int? id)
+    {
+        if (!id.HasValue)
+            return new BadRequestResult();
+
+        repository.Delete(id!.Value);
+        return new NoContentResult();
+    }
 }

@@ -1,3 +1,5 @@
-﻿namespace CustomerProfileService.Contracts.Events;
+﻿using ConsumptionNotificationSubscriptionService.Contracts;
 
-public record NotifictionSettingsUpdated(Guid CustomerId, string PhoneNumber, string Email, PreferedCommunicationChannel PreferedCommunicationChannel);
+namespace CustomerProfileService.Contracts.Events;
+
+public record NotifictionSettingsUpdated(Guid CustomerId, string PhoneNumber, string Email, CommunicationChannel PreferedCommunicationChannel);

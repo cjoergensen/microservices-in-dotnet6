@@ -1,4 +1,6 @@
-﻿using CustomerProfileService.Data;
+﻿using CustomerProfileService.Contracts.Commands;
+using CustomerProfileService.Data;
+using CustomerProfileService.Models;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -29,5 +31,20 @@ public class ProfileController : Controller
             return new NotFoundResult();
 
         return new ObjectResult(new GetCustomerProfileResponse(customerProfile.CustomerId, customerProfile.Name, customerProfile.PhoneNumber, customerProfile.Email));
+    }
+
+    [HttpPut]
+    public IActionResult Update([FromBody] UpdateProfile? updateCommand)
+    {
+        if (updateCommand == null)
+            return new BadRequestResult();
+
+        var customerProfile = repository.Get(updateCommand.CustomerId);
+        if (customerProfile == null)
+            return new NotFoundResult();
+
+        repository.Update(updateCommand.CustomerId, updateCommand.Name, updateCommand.PhoneNumber, updateCommand.Email);
+
+        return new NoContentResult();
     }
 }

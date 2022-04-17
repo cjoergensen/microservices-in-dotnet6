@@ -1,9 +1,13 @@
-﻿using ConsumptionNotificationSubscriptionService.Models;
+﻿using ConsumptionNotificationSubscriptionService.Contracts;
+using ConsumptionNotificationSubscriptionService.Models;
 
 namespace ConsumptionNotificationSubscriptionService.Data
 {
     public interface IAbnormalConsumptionSubscriptionRepository
     {
-        Task<AbnormalConsumptionSubscription> Get(int customerId);
+        void Add(int customerId, CommunicationChannel communicationChannel);
+        void Delete(int customerId);
+        AbnormalConsumptionSubscription? Get(int customerId);
+        void Update(int customerId, CommunicationChannel communicationChannel);
     }
 }

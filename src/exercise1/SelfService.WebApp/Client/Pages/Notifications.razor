@@ -16,13 +16,13 @@
                 <label class="form-label">Consumption alerts</label> 
             </div>
             <div class="col-sm">
-                <RadzenSwitch @bind-Value=@AbnormalConsumption class=align-middle />        
+                <RadzenSwitch @bind-Value=@Subscriptions["abnormalconsumption"] Change=@(args => UpdateSubscription(args, "abnormalconsumption")) class=align-middle />        
             </div>
         </div>
 
         <div class="row">
             <div class="col-sm">
-                <label class="form-label">Outage alerts [comming soon]</label> 
+                <label class="form-label">Outage alerts [coming soon]</label> 
             </div>
             <div class="col-sm">
                 <RadzenSwitch Disabled class=align-middle />        

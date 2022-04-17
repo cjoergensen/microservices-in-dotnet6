@@ -1,3 +1,5 @@
-﻿namespace CustomerProfileService.Contracts.Queries;
+﻿using ConsumptionNotificationSubscriptionService.Contracts;
 
-public record GetNotificationSettingsResponse(int CustomerId, PreferedCommunicationChannel PreferedCommunicationChannel);
+namespace CustomerProfileService.Contracts.Queries;
+
+public record GetNotificationSettingsResponse(int CustomerId, CommunicationChannel PreferedCommunicationChannel);

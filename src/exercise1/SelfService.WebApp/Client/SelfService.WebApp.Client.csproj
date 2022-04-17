@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\..\CustomerProfileService\Contracts\Contracts.csproj" />
   </ItemGroup>
 

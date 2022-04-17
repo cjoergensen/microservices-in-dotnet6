@@ -1,23 +1,33 @@
-﻿using CustomerProfileService.Models;
+﻿using ConsumptionNotificationSubscriptionService.Contracts;
+using CustomerProfileService.Models;
 
 namespace CustomerProfileService.Data;
 
 public class NotificationSettingsRepository : INotificationSettingsRepository
 {
-    private List<NotificationSettings> data;
+    private Dictionary<int, CommunicationChannel> notificationSettings;
 
     public NotificationSettingsRepository()
     {
-        data = new List<NotificationSettings>
+
+        notificationSettings = new Dictionary<int, CommunicationChannel>
         {
-            new(1, CommunicationChannel.Phonenumber),
-            new(2, CommunicationChannel.Email)
+            [1] = CommunicationChannel.Phone,
+            [2] = CommunicationChannel.Email
         };
     }
 
-    public NotificationSettings? Get(int CustomerId)
+    public NotificationSettings? Get(int customerId)
     {
-        return data.SingleOrDefault(x => x.CustomerId == CustomerId);
+        if (notificationSettings.ContainsKey(customerId))
+            return new NotificationSettings(customerId, notificationSettings[customerId]);
+
+        return null;
     }
 
+    public void Update(int customerId, CommunicationChannel preferedCommunicationChannel)
+    {
+        if (notificationSettings.ContainsKey(customerId))
+            notificationSettings[customerId] = preferedCommunicationChannel;
+    }
 }

@@ -1,4 +1,6 @@
-﻿using SelfService.WebApp.Models;
+﻿using CustomerProfileService.Contracts.Commands;
+using SelfService.WebApp.Models;
+using System.Text;
 using System.Text.Json;
 
 namespace SelfService.WebApp.Client.Clients;
@@ -42,6 +44,23 @@ public class CustomerProfileServiceClient
             throw new InvalidOperationException("Unable to load 'Profile'");
 
         return profile;
+    }
 
+    public async Task UpdateNotificationSettings(NotificationSettings notificationSettings)
+    {
+        var updateCommand = new UpdateNotificationSettings(notificationSettings.CustomerId, notificationSettings.PreferedCommunicationChannel);
+        var content = new StringContent(JsonSerializer.Serialize(updateCommand), Encoding.UTF8, "application/json");
+        var httpResponse = await httpClient.PutAsync($"notificationsettings", content);
+        httpResponse.EnsureSuccessStatusCode();
+    }
+
+    
+
+    public async Task UpdateProfile(Profile profile)
+    {
+        var updateCommand = new UpdateProfile(profile.CustomerId, profile.Name, profile.PhoneNumber, profile.Email);
+        var content = new StringContent(JsonSerializer.Serialize(updateCommand), Encoding.UTF8, "application/json");
+        var httpResponse = await httpClient.PutAsync($"profile", content);
+        httpResponse.EnsureSuccessStatusCode();
     }
 }

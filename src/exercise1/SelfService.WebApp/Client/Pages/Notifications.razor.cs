@@ -7,20 +7,29 @@ namespace SelfService.WebApp.Client.Pages;
 public partial class Notifications
 {
     [Inject]
-    public NotificationSubscriptionServiceClient? Client { get; set; }
+    public NotificationSubscriptionServiceClient? SubscriptionClient { get; set; }
 
-    public bool AbnormalConsumption { get; set; }
- 
+    [Inject]
+    public CustomerProfileServiceClient? ProfileClient { get; set; }
 
-    private List<NotificationSubscription>? Subscriptions { get; set; }
+    private Dictionary<string, bool>? Subscriptions { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
-        Subscriptions = await Client!.GetSubscriptions(1);
-        if (Subscriptions == null)
-            AbnormalConsumption = false;
-        else
-            AbnormalConsumption =  Subscriptions.SingleOrDefault(subscription => subscription.Name == "abnormalconsumption").Active;
-
+        Subscriptions = await SubscriptionClient!.GetSubscriptions(1);
     }
+
+    public async Task UpdateSubscription(bool newSubscription, string name)
+    {
+        if (newSubscription)
+        {
+            var notificationSettings = await ProfileClient!.GetNotificationSettings(1);
+            var communicationChannel = notificationSettings.PreferedCommunicationChannel;
+            await SubscriptionClient!.CreateSubscription(1, name, communicationChannel);
+            return;
+        }
+
+        await SubscriptionClient!.DeleteSubscription(1, name);
+    }
+
 }

@@ -1,3 +1,5 @@
-﻿namespace CustomerProfileService.Contracts.Commands;
+﻿using ConsumptionNotificationSubscriptionService.Contracts;
 
-public record UpdateNotificationSettings(string PhoneNumber, string Email, PreferedCommunicationChannel PreferedCommunicationChannel);
+namespace CustomerProfileService.Contracts.Commands;
+
+public record UpdateNotificationSettings(int CustomerId, CommunicationChannel PreferedCommunicationChannel);

@@ -1,15 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ConsumptionNotificationSubscriptionService.Contracts;
+using System.ComponentModel.DataAnnotations;
 
 namespace SelfService.WebApp.Models;
 
 public class NotificationSettings
 {
-    [Required]
-    public string? Email { get; set; }
-
-    [Required]
-    public string? Phonenumber { get; set; }
+    public int CustomerId { get; }
 
     [Required]
     public CommunicationChannel PreferedCommunicationChannel { get; set; }
+
+    public NotificationSettings(int customerId, CommunicationChannel preferedCommunicationChannel)
+    {
+        CustomerId = customerId;
+        PreferedCommunicationChannel = preferedCommunicationChannel;
+    }
 }

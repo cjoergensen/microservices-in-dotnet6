@@ -8,4 +8,8 @@
     <RootNamespace>CustomerProfileService.Models</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
