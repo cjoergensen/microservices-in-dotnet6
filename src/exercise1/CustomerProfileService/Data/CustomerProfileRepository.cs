@@ -1,29 +1,38 @@
 ﻿using CustomerProfileService.Models;
+using LiteDB;
 
 namespace CustomerProfileService.Data;
 
 public class CustomerProfileRepository : ICustomerProfileRepository
 {
-    private Dictionary<int, CustomerProfile> profiles;
-    public CustomerProfileRepository()
-    {
-        profiles = new Dictionary<int, CustomerProfile>
-        {
-            [1] = new CustomerProfile(1, Name: "John Doe", PhoneNumber: "12345676", "john@test.com"),
-            [2] = new CustomerProfile(1, Name: "Jane Doe", PhoneNumber: "87654321", "jane@test.com")
-        };
-    }
+    private const string DatabaseFile = "CustomerProfileService.db";
+    private const string CollectionName = "customerprofiles";
 
     public CustomerProfile Get(int customerId)
     {
-        return profiles[customerId];
+        using var db = new LiteDatabase(DatabaseFile);
+        var profiles = db.GetCollection<CustomerProfile>(CollectionName);
+        return Get(customerId, profiles);
     }
 
     public void Update(int customerId, string name, string phone, string email)
     {
-        var profile = Get(customerId);
+        using var db = new LiteDatabase(DatabaseFile);
+        var profiles = db.GetCollection<CustomerProfile>(CollectionName);
+
+        var profile = Get(customerId, profiles);
+        if (profile == null)
+            return;
+
         profile.Name = name;
-        profile.PhoneNumber = phone;
         profile.Email = email;
+        profile.PhoneNumber = phone;
+        profiles.Update(profile);
+    }
+
+    private static CustomerProfile Get(int customerId, ILiteCollection<CustomerProfile> profiles)
+    {
+        profiles.EnsureIndex(subscription => subscription.CustomerId);
+        return profiles.FindOne(subscription => subscription.CustomerId == customerId);
     }
 }
