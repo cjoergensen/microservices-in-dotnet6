@@ -13,9 +13,7 @@ public class AbnormalConsumptionSubscriptionRepository : IAbnormalConsumptionSub
     {
         using var db = new LiteDatabase(DatabaseFile);
         var subscriptions = db.GetCollection<AbnormalConsumptionSubscription>(CollectionName);
-        subscriptions.EnsureIndex(subscription => subscription.CustomerId);
-
-        return subscriptions.FindOne(subscription => subscription.CustomerId == customerId);
+        return Get(customerId, subscriptions);
     }
 
     public void Add(int customerId, CommunicationChannel communicationChannel)
@@ -34,12 +32,18 @@ public class AbnormalConsumptionSubscriptionRepository : IAbnormalConsumptionSub
 
     public void Delete(int customerId)
     {
-        var subscription = Get(customerId);
-        if (subscription == null)
-            return;
-        
         using var db = new LiteDatabase(DatabaseFile);
         var subscriptions = db.GetCollection<AbnormalConsumptionSubscription>(CollectionName);
+        var subscription = Get(customerId, subscriptions);
+        if (subscription == null)
+            return;
+
         subscriptions.Delete(new LiteDB.BsonValue(subscription.Id));
+    }
+
+    private static AbnormalConsumptionSubscription? Get(int customerId, ILiteCollection<AbnormalConsumptionSubscription> subscriptions)
+    {
+        subscriptions.EnsureIndex(subscription => subscription.CustomerId);
+        return subscriptions.FindOne(subscription => subscription.CustomerId == customerId);
     }
 }
