@@ -2,4 +2,9 @@
 
 namespace CustomerProfileService.Models;
 
-public record NotificationSettings(int CustomerId, CommunicationChannel PreferedCommunicationChannel);
+public class NotificationSettings
+{
+    public int Id { get; set; }
+    public int CustomerId { get; set; }
+    public CommunicationChannel PreferedCommunicationChannel { get; set; }
+}

@@ -19,6 +19,9 @@ public class CustomerProfileServiceClient
         var httpResponse = await httpClient.GetAsync($"notificationsettings/{profileId}");
         httpResponse.EnsureSuccessStatusCode();
 
+        if (httpResponse.StatusCode == System.Net.HttpStatusCode.NotFound)
+            return new NotificationSettings(profileId, ConsumptionNotificationSubscriptionService.Contracts.CommunicationChannel.Email);
+
         var content = await httpResponse.Content.ReadAsStringAsync();
         if (string.IsNullOrWhiteSpace(content))
             throw new InvalidOperationException("Unable to load 'Notification Settings'");

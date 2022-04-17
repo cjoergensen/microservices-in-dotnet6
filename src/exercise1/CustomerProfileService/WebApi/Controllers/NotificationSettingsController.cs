@@ -25,7 +25,7 @@ public class NotificationSettingsController : ControllerBase
 
         var settings = notificationSettingsRepository.Get(id.Value);
         if(settings == null)
-            return new NotFoundResult();
+            return new ObjectResult(new GetNotificationSettingsResponse(id.Value, ConsumptionNotificationSubscriptionService.Contracts.CommunicationChannel.Email));
 
         return new ObjectResult(new GetNotificationSettingsResponse(settings.CustomerId, settings.PreferedCommunicationChannel));
     }
