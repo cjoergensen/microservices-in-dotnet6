@@ -8,4 +8,9 @@
     <AssemblyName>ConsumptionNotificationSubscriptionService.Contracts</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Events\" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,4 @@
 ﻿using ConsumptionNotificationSubscriptionService.Contracts;
-using SelfService.WebApp.Client.Models;
-using SelfService.WebApp.Models;
 using System.Text;
 using System.Text.Json;
 

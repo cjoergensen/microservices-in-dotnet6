@@ -12,4 +12,8 @@
     <ProjectReference Include="..\..\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Events\" />
+  </ItemGroup>
+
 </Project>

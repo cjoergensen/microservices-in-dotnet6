@@ -1,5 +1,0 @@
-﻿using ConsumptionNotificationSubscriptionService.Contracts;
-
-namespace CustomerProfileService.Contracts.Commands;
-
-public record UpdateNotificationSettings(int CustomerId, CommunicationChannel PreferedCommunicationChannel);

@@ -1,6 +1,5 @@
 using ConsumptionNotificationSubscriptionService.Contracts;
 using ConsumptionNotificationSubscriptionService.Data;
-using ConsumptionSubscriptionService.Contracts.Queries;
 
 namespace ConsumptionSubscriptionService.Controllers;
 
@@ -9,17 +8,15 @@ namespace ConsumptionSubscriptionService.Controllers;
 public class AbnormalConsumptionController : ControllerBase
 {
     private readonly IAbnormalConsumptionSubscriptionRepository repository;
-    private readonly ILogger<AbnormalConsumptionController> logger;
 
-    public AbnormalConsumptionController(IAbnormalConsumptionSubscriptionRepository repository, ILogger<AbnormalConsumptionController> logger)
+    public AbnormalConsumptionController(IAbnormalConsumptionSubscriptionRepository repository)
     {
         this.repository = repository;
-        this.logger = logger;
     }
 
     [HttpGet]
     [Route("{id?}")]
-    public async Task<IActionResult> Get(int? id)
+    public IActionResult Get(int? id)
     {
         if (!id.HasValue)
             return new BadRequestResult();

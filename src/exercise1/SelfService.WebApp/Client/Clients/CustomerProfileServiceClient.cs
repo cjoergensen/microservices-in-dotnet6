@@ -57,8 +57,6 @@ public class CustomerProfileServiceClient
         httpResponse.EnsureSuccessStatusCode();
     }
 
-    
-
     public async Task UpdateProfile(Profile profile)
     {
         var updateCommand = new UpdateProfile(profile.CustomerId, profile.Name, profile.PhoneNumber, profile.Email);

@@ -1,7 +1,5 @@
 ﻿using CustomerProfileService.Contracts.Commands;
 using CustomerProfileService.Data;
-using CustomerProfileService.Models;
-using Microsoft.AspNetCore.Mvc;
 
 
 namespace CustomerProfileService.WebApi.Controllers;
