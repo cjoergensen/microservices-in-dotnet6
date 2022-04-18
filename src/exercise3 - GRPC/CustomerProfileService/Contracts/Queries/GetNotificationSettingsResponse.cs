@@ -1,0 +1,5 @@
+﻿using ConsumptionNotificationSubscriptionService.Contracts;
+
+namespace CustomerProfileService.Contracts.Queries;
+
+public record GetNotificationSettingsResponse(int CustomerId, CommunicationChannel PreferedCommunicationChannel);

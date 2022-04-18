@@ -3,29 +3,33 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelfService.WebApp.Client", "exercise1\SelfService.WebApp\Client\SelfService.WebApp.Client.csproj", "{F030A8C7-3F21-47DA-B198-4B13B5FE6523}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SelfService.WebApp.Client", "exercise3 - GRPC\SelfService.WebApp\Client\SelfService.WebApp.Client.csproj", "{F030A8C7-3F21-47DA-B198-4B13B5FE6523}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SelfServiceWebApp", "SelfServiceWebApp", "{2022503F-C48B-401D-9F6D-117A3650587C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "exercise1\ConsumptionSubscriptionService\WebApi\WebApi.csproj", "{D8ABB72F-B23D-4856-8F66-A45522E963A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "exercise3 - GRPC\ConsumptionSubscriptionService\WebApi\WebApi.csproj", "{D8ABB72F-B23D-4856-8F66-A45522E963A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsumptionNotificationSubscriptionService", "ConsumptionNotificationSubscriptionService", "{D4E706AA-6303-471D-BCDF-FA77441B0E75}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "exercise1\ConsumptionSubscriptionService\Contracts\Contracts.csproj", "{0A484B52-2E82-4E5C-8ECF-3CC1029C386D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "exercise3 - GRPC\ConsumptionSubscriptionService\Contracts\Contracts.csproj", "{0A484B52-2E82-4E5C-8ECF-3CC1029C386D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerProfileService", "CustomerProfileService", "{2A689821-CFE3-4F6C-BF38-1C2A44239D3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "exercise1\CustomerProfileService\WebApi\WebApi.csproj", "{2297549D-36A7-4BFB-9EF2-50B959271686}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "exercise3 - GRPC\CustomerProfileService\WebApi\WebApi.csproj", "{2297549D-36A7-4BFB-9EF2-50B959271686}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "exercise1\CustomerProfileService\Contracts\Contracts.csproj", "{A17EFC4F-E908-47B7-BA4A-D8435585D8AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "exercise3 - GRPC\CustomerProfileService\Contracts\Contracts.csproj", "{A17EFC4F-E908-47B7-BA4A-D8435585D8AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "exercise1\CustomerProfileService\Data\Data.csproj", "{26FB382D-B92D-401F-BA2A-8832026263A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "exercise3 - GRPC\CustomerProfileService\Data\Data.csproj", "{26FB382D-B92D-401F-BA2A-8832026263A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "exercise1\CustomerProfileService\Models\Models.csproj", "{C92AFBF1-B8F7-42AC-8A1D-30535C7CAAFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "exercise3 - GRPC\CustomerProfileService\Models\Models.csproj", "{C92AFBF1-B8F7-42AC-8A1D-30535C7CAAFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "exercise1\ConsumptionSubscriptionService\Data\Data.csproj", "{E2B148D3-005B-441E-A860-081ACF6E9926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "exercise3 - GRPC\ConsumptionSubscriptionService\Data\Data.csproj", "{E2B148D3-005B-441E-A860-081ACF6E9926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "exercise1\ConsumptionSubscriptionService\Models\Models.csproj", "{5CC4E98F-E3D1-45C3-88AC-CF6781505777}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "exercise3 - GRPC\ConsumptionSubscriptionService\Models\Models.csproj", "{5CC4E98F-E3D1-45C3-88AC-CF6781505777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfService.WebApp.Backend", "exercise3 - GRPC\SelfService.WebApp.Backend\SelfService.WebApp.Backend.csproj", "{F45C82BC-9400-49F5-93DB-458BEA0C31B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfService.WebApp.Shared", "exercise3 - GRPC\SelfService.WebApp.Shared\SelfService.WebApp.Shared.csproj", "{8116FA13-39A5-4E3B-BE48-2BA4266E54C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,14 @@ Global
 		{5CC4E98F-E3D1-45C3-88AC-CF6781505777}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CC4E98F-E3D1-45C3-88AC-CF6781505777}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CC4E98F-E3D1-45C3-88AC-CF6781505777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45C82BC-9400-49F5-93DB-458BEA0C31B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45C82BC-9400-49F5-93DB-458BEA0C31B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45C82BC-9400-49F5-93DB-458BEA0C31B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45C82BC-9400-49F5-93DB-458BEA0C31B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8116FA13-39A5-4E3B-BE48-2BA4266E54C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8116FA13-39A5-4E3B-BE48-2BA4266E54C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8116FA13-39A5-4E3B-BE48-2BA4266E54C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8116FA13-39A5-4E3B-BE48-2BA4266E54C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +95,8 @@ Global
 		{C92AFBF1-B8F7-42AC-8A1D-30535C7CAAFE} = {2A689821-CFE3-4F6C-BF38-1C2A44239D3C}
 		{E2B148D3-005B-441E-A860-081ACF6E9926} = {D4E706AA-6303-471D-BCDF-FA77441B0E75}
 		{5CC4E98F-E3D1-45C3-88AC-CF6781505777} = {D4E706AA-6303-471D-BCDF-FA77441B0E75}
+		{F45C82BC-9400-49F5-93DB-458BEA0C31B5} = {2022503F-C48B-401D-9F6D-117A3650587C}
+		{8116FA13-39A5-4E3B-BE48-2BA4266E54C4} = {2022503F-C48B-401D-9F6D-117A3650587C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6765891C-426F-4410-8BF6-420089B76037}

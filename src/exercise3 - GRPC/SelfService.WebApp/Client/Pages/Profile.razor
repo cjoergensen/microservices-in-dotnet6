@@ -1,0 +1,45 @@
+﻿@page "/profile"
+@inject HttpClient httpClient
+
+<PageTitle>Your Profile</PageTitle>
+
+
+<div class="card m-1">
+    <h4 class="card-header">Your info</h4>
+    <div class="card-body">
+    @if(CustomerProfile == null )
+    {
+        <span>Loading profile...</span>
+    }
+    else
+    {
+        <EditForm Model="@CustomerProfile">
+            <div class="form-group col-3">
+                <label class="form-label">Name</label>
+                <InputText @bind-Value="CustomerProfile.Name" class="form-control" />
+            </div>
+
+            <div class="form-row col-3">
+                <label class="form-label">Email</label>
+                <InputText @bind-Value="CustomerProfile.Email" class="form-control" />
+            </div>
+
+            <div class="form-group col-3">
+                <label for="email" class="form-label">Phone</label>
+                <InputText id="email" @bind-Value="CustomerProfile.PhoneNumber" class="form-control" />
+            </div>
+
+            <div class="form-group col-3">
+                <label for="communicationChannel" class="form-label">Prefered Channel</label>
+                <InputSelect id="communicationChannel" @bind-Value="CustomerProfile.PreferedCommunicationChannel" class="form-select">
+                    <option value="Email">Email</option>
+                    <option value="Phone">Phone</option>
+                </InputSelect>
+            </div>
+
+            <br />
+            <button type="submit" @onclick=UpdateProfile class="btn btn-primary">Update</button>
+        </EditForm>
+    }
+    </div>
+</div>
