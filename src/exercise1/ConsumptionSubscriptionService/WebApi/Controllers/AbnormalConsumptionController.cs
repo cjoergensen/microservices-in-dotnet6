@@ -1,7 +1,7 @@
 using ConsumptionNotificationSubscriptionService.Contracts;
 using ConsumptionNotificationSubscriptionService.Data;
 
-namespace ConsumptionSubscriptionService.Controllers;
+namespace ConsumptionNotificationSubscriptionService.WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]

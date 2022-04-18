@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.Json;
 
-namespace SelfService.WebApp.Client.Clients;
+namespace SelfService.WebApp.Client.ApiClients;
 
 public class NotificationSubscriptionServiceClient
 {

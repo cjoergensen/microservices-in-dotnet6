@@ -1,7 +1,7 @@
 using CustomerProfileService.Contracts.Commands;
 using CustomerProfileService.Data;
 
-namespace WebApi.Controllers;
+namespace CustomerProfileService.WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]

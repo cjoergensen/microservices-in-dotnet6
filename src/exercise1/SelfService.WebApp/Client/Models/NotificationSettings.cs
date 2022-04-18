@@ -1,7 +1,7 @@
 ﻿using ConsumptionNotificationSubscriptionService.Contracts;
 using System.ComponentModel.DataAnnotations;
 
-namespace SelfService.WebApp.Models;
+namespace SelfService.WebApp.Client.Models;
 
 public class NotificationSettings
 {

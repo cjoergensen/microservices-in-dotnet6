@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using SelfService.WebApp.Client.Clients;
+using SelfService.WebApp.Client.ApiClients;
 
 namespace SelfService.WebApp.Client.Pages;
 
@@ -7,8 +7,8 @@ public partial class Profile
 {
     [Inject]
     public CustomerProfileServiceClient? ProfileClient { get; set; }
-    public SelfService.WebApp.Models.Profile? CustomerProfile { get; set; }
-    public SelfService.WebApp.Models.NotificationSettings? NotificationSettings { get; set; }
+    public Models.Profile? CustomerProfile { get; set; }
+    public Models.NotificationSettings? NotificationSettings { get; set; }
 
     protected async override Task OnInitializedAsync()
     {

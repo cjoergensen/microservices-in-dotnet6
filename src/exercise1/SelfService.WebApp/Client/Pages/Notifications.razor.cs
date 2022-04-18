@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using SelfService.WebApp.Client.Clients;
+using SelfService.WebApp.Client.ApiClients;
 
 namespace SelfService.WebApp.Client.Pages;
 
