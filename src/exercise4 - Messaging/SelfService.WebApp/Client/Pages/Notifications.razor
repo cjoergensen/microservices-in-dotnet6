@@ -1,0 +1,56 @@
+﻿@page "/notifications"
+
+<PageTitle>Notifications</PageTitle>
+
+@if(Subscriptions == null )
+{
+    <span>Loading notifications...</span>
+}
+else
+{
+    <div class="card m-1">
+        <h4 class="card-header">Power consumption</h4>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm">
+                    <label class="form-label">Abnormal consumption</label> 
+                </div>
+                <div class="col-sm">
+                    <RadzenSwitch @bind-Value=@Subscriptions["powerconsumption.abnormalconsumption"] Change=@(args => UpdateAbnormalConsumption(args)) class=align-middle />        
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <label class="form-label">Outage</label>                     
+                </div>
+                <div class="col-sm">
+                    <RadzenSwitch @bind-Value=@Subscriptions["powerconsumption.outage"] class=align-middle />        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card m-1">
+        <h4 class="card-header">Billing</h4>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm">
+                    <label class="form-label">New invoice</label> 
+                </div>
+                <div class="col-sm">
+                    <RadzenSwitch @bind-Value=@Subscriptions["billing.newinvoice"] class=align-middle />        
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <label class="form-label">Payment overdue</label> 
+                </div>
+                <div class="col-sm">
+                    <RadzenSwitch @bind-Value=@Subscriptions["billing.paymentoverdue"] class=align-middle />        
+                </div>
+            </div>
+        </div>
+    </div>
+}
