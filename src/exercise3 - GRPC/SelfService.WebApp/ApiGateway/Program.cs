@@ -1,4 +1,4 @@
-using SelfService.WebApp.Backend.ApiClients;
+using SelfService.WebApp.ApiGateway.ApiClients;
 
 var builder = WebApplication.CreateBuilder(args);
 

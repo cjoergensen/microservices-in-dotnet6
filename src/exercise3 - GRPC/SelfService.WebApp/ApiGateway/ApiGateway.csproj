@@ -11,8 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomerProfileService\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\SelfService.WebApp.Shared\SelfService.WebApp.Shared.csproj" />
+    <ProjectReference Include="..\..\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\..\CustomerProfileService\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>

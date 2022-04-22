@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ConsumptionNotificationSubscriptionService.Contracts;
+using System.ComponentModel.DataAnnotations;
 
 namespace SelfService.WebApp.Shared.Models;
 
@@ -7,10 +8,11 @@ public class Profile
     public int CustomerId { get; set; }
 
     [Required]
-    public string? Name { get; set; }
-
+    public string Name { get; set; }
     [Required]
-    public DateTimeOffset DateOfBirth { get; set; }
+    public string PhoneNumber { get; set; }
+    [Required]
+    public string Email { get; set; }
+    public CommunicationChannel PreferedCommunicationChannel { get; set; }
 
-    public NotificationSettings NotificationSettings { get; set; }
 }

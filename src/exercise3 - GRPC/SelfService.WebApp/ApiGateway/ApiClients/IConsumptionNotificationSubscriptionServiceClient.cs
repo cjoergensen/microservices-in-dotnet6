@@ -1,6 +1,6 @@
 ﻿using ConsumptionNotificationSubscriptionService.Contracts;
 
-namespace SelfService.WebApp.Backend.ApiClients
+namespace SelfService.WebApp.ApiGateway.ApiClients
 {
     public interface IConsumptionNotificationSubscriptionServiceClient
     {

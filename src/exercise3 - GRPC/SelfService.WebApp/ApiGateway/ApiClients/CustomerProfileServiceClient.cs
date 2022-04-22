@@ -3,7 +3,7 @@ using CustomerProfileService.Contracts.Queries;
 using System.Text;
 using System.Text.Json;
 
-namespace SelfService.WebApp.Backend.ApiClients;
+namespace SelfService.WebApp.ApiGateway.ApiClients;
 
 public class CustomerProfileServiceClient : ICustomerProfileServiceClient
 {

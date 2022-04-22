@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SelfService.WebApp.Backend.ApiClients;
+using SelfService.WebApp.ApiGateway.ApiClients;
 
 namespace SelfService.WebApp.Backend.Controllers;
 
