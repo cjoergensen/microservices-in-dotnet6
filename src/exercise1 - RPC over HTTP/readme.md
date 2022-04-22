@@ -1,10 +1,6 @@
 
 # Exercise 1 - RPC over HTTP
 
-## Objective
-
-TODO
-
 ## Introduction to the solution
 
 The solution contains two services and the web frontend:
