@@ -50,17 +50,4 @@ public class NotificationsController : Controller
     {
         await consumptionNotificationSubscriptionServiceClient.DeleteAbnormalConsumptionSubscription(id);
     }
-
-    //public async Task CreateSubscription(int profileId, string subscriptionName, CommunicationChannel communicationChannel)
-    //{
-    //    var content = new StringContent(JsonSerializer.Serialize(communicationChannel), Encoding.UTF8, "application/json");
-    //    var httpResponse = await httpClient.PutAsync($"{subscriptionName}/{profileId}", content);
-    //    httpResponse.EnsureSuccessStatusCode();
-    //}
-
-    //public async Task DeleteSubscription(int profileId, string subscriptionName)
-    //{
-    //    var httpResponse = await httpClient.DeleteAsync($"{subscriptionName}/{profileId}");
-    //    httpResponse.EnsureSuccessStatusCode();
-    //}
 }
