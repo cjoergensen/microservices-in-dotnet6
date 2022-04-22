@@ -1,4 +1,4 @@
-using CustomerProfileService.Contracts.Commands;
+﻿using CustomerProfileService.Contracts.Commands;
 using CustomerProfileService.Data;
 
 namespace CustomerProfileService.WebApi.Controllers;
@@ -7,12 +7,10 @@ namespace CustomerProfileService.WebApi.Controllers;
 [Route("[controller]")]
 public class NotificationSettingsController : ControllerBase
 {
-    private readonly ILogger<NotificationSettingsController> logger;
     private readonly INotificationSettingsRepository notificationSettingsRepository;
 
-    public NotificationSettingsController(ILogger<NotificationSettingsController> logger, INotificationSettingsRepository notificationSettingsRepository)
+    public NotificationSettingsController(INotificationSettingsRepository notificationSettingsRepository)
     {
-        this.logger = logger;
         this.notificationSettingsRepository = notificationSettingsRepository;
     }
 
@@ -24,7 +22,7 @@ public class NotificationSettingsController : ControllerBase
             return new BadRequestResult();
 
         var settings = notificationSettingsRepository.Get(id.Value);
-        if(settings == null)
+        if (settings == null)
             return new ObjectResult(new GetNotificationSettingsResponse(id.Value, ConsumptionNotificationSubscriptionService.Contracts.CommunicationChannel.Email));
 
         return new ObjectResult(new GetNotificationSettingsResponse(settings.CustomerId, settings.PreferedCommunicationChannel));

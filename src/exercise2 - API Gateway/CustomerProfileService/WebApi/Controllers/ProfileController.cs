@@ -1,25 +1,21 @@
 ﻿using CustomerProfileService.Contracts.Commands;
 using CustomerProfileService.Data;
-
-
 namespace CustomerProfileService.WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class ProfileController : Controller
+public class ProfileController : ControllerBase
 {
     private readonly ICustomerProfileRepository repository;
-    private readonly ILogger<ProfileController> logger;
 
-    public ProfileController(ICustomerProfileRepository repository, ILogger<ProfileController> logger)
+    public ProfileController(ICustomerProfileRepository repository)
     {
         this.repository = repository;
-        this.logger = logger;
     }
 
     [HttpGet]
     [Route("{id?}")]
-    public IActionResult Index([FromRoute]int? id)
+    public IActionResult Get([FromRoute] int? id)
     {
         if (!id.HasValue)
             return new BadRequestResult();

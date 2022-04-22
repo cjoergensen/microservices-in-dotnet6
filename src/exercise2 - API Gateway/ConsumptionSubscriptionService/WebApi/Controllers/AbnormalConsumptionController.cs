@@ -1,4 +1,4 @@
-using ConsumptionNotificationSubscriptionService.Contracts;
+﻿using ConsumptionNotificationSubscriptionService.Contracts;
 using ConsumptionNotificationSubscriptionService.Data;
 
 namespace ConsumptionNotificationSubscriptionService.WebApi.Controllers;

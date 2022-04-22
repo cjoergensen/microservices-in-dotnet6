@@ -14,6 +14,30 @@ public class CustomerProfileServiceClient
         this.httpClient = httpClient;
     }
 
+    public async Task<Profile> GetProfile(int profileId)
+    {
+        var httpResponse = await httpClient.GetAsync($"profile/{profileId}");
+        httpResponse.EnsureSuccessStatusCode();
+
+        var content = await httpResponse.Content.ReadAsStringAsync();
+        if (string.IsNullOrWhiteSpace(content))
+            throw new InvalidOperationException("Unable to load 'Profile'");
+
+        var profile = JsonSerializer.Deserialize<Profile>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        if (profile is null)
+            throw new InvalidOperationException("Unable to load 'Profile'");
+
+        return profile;
+    }
+
+    public async Task UpdateProfile(Profile profile)
+    {
+        var updateCommand = new UpdateProfile(profile.CustomerId, profile.Name, profile.PhoneNumber, profile.Email);
+        var content = new StringContent(JsonSerializer.Serialize(updateCommand), Encoding.UTF8, "application/json");
+        var httpResponse = await httpClient.PutAsync($"profile", content);
+        httpResponse.EnsureSuccessStatusCode();
+    }
+
     public async Task<NotificationSettings> GetNotificationSettings(int profileId)
     {
         var httpResponse = await httpClient.GetAsync($"notificationsettings/{profileId}");
@@ -33,22 +57,6 @@ public class CustomerProfileServiceClient
         return notificationSettings;
     }
 
-    public async Task<Profile> GetProfile(int profileId)
-    {
-        var httpResponse = await httpClient.GetAsync($"profile/{profileId}");
-        httpResponse.EnsureSuccessStatusCode();
-
-        var content = await httpResponse.Content.ReadAsStringAsync();
-        if (string.IsNullOrWhiteSpace(content))
-            throw new InvalidOperationException("Unable to load 'Profile'");
-
-        var profile = JsonSerializer.Deserialize<Profile>(content, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-        if (profile is null)
-            throw new InvalidOperationException("Unable to load 'Profile'");
-
-        return profile;
-    }
-
     public async Task UpdateNotificationSettings(NotificationSettings notificationSettings)
     {
         var updateCommand = new UpdateNotificationSettings(notificationSettings.CustomerId, notificationSettings.PreferedCommunicationChannel);
@@ -57,11 +65,5 @@ public class CustomerProfileServiceClient
         httpResponse.EnsureSuccessStatusCode();
     }
 
-    public async Task UpdateProfile(Profile profile)
-    {
-        var updateCommand = new UpdateProfile(profile.CustomerId, profile.Name, profile.PhoneNumber, profile.Email);
-        var content = new StringContent(JsonSerializer.Serialize(updateCommand), Encoding.UTF8, "application/json");
-        var httpResponse = await httpClient.PutAsync($"profile", content);
-        httpResponse.EnsureSuccessStatusCode();
-    }
+
 }
