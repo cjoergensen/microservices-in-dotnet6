@@ -1,12 +1,10 @@
-using CustomerProfileService.Data;
+using ConsumptionNotificationSubscriptionService.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<INotificationSettingsRepository, NotificationSettingsRepository>();
-builder.Services.AddSingleton<ICustomerProfileRepository, CustomerProfileRepository>();
+builder.Services.AddSingleton<IAbnormalConsumptionSubscriptionRepository, AbnormalConsumptionSubscriptionRepository>();
 builder.Services.AddControllers();
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -18,7 +16,6 @@ builder.Services.AddCors(policy =>
         .AllowAnyHeader()
         .AllowAnyMethod());
 });
-
 
 var app = builder.Build();
 
