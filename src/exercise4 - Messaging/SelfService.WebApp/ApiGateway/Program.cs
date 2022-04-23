@@ -1,12 +1,16 @@
-using CustomerProfileService.Data;
+using SelfService.WebApp.ApiGateway.ApiClients;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<INotificationSettingsRepository, NotificationSettingsRepository>();
-builder.Services.AddSingleton<ICustomerProfileRepository, CustomerProfileRepository>();
-builder.Services.AddControllers();
+builder.Services.AddHttpClient<ICustomerProfileServiceClient, CustomerProfileServiceClient>(client =>
+    client.BaseAddress = new Uri("https://localhost:8001"));
 
+builder.Services.AddHttpClient<IConsumptionNotificationSubscriptionServiceClient, ConsumptionNotificationSubscriptionServiceClient>(client =>
+    client.BaseAddress = new Uri("https://localhost:8002"));
+
+
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -18,7 +22,6 @@ builder.Services.AddCors(policy =>
         .AllowAnyHeader()
         .AllowAnyMethod());
 });
-
 
 var app = builder.Build();
 
@@ -34,6 +37,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
 app.UseCors("CorsPolicy");
 
 app.Run();

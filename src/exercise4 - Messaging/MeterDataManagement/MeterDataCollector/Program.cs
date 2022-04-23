@@ -1,13 +1,16 @@
-using CustomerProfileService.Data;
+using MeterReadingService.Data;
+using MeterReadingService.WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddSingleton<INotificationSettingsRepository, NotificationSettingsRepository>();
-builder.Services.AddSingleton<ICustomerProfileRepository, CustomerProfileRepository>();
-builder.Services.AddControllers();
+// Additional configuration is required to successfully run gRPC on macOS.
+// For instructions on how to configure Kestrel and gRPC clients on macOS, visit https://go.microsoft.com/fwlink/?linkid=2099682
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Add services to the container.
+builder.Services.AddGrpc();
+builder.Services.AddControllers();
+builder.Services.AddSingleton<IMeterReadingRepository, MeterReadingRepository>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -18,7 +21,6 @@ builder.Services.AddCors(policy =>
         .AllowAnyHeader()
         .AllowAnyMethod());
 });
-
 
 var app = builder.Build();
 
@@ -33,7 +35,11 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+// Configure the HTTP request pipeline.
+app.MapGrpcService<PowerMeterReadingService>();
 app.MapControllers();
 app.UseCors("CorsPolicy");
+
+
 
 app.Run();

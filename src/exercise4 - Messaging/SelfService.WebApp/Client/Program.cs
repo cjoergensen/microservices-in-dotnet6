@@ -18,4 +18,7 @@ builder.Services.AddHttpClient<SelfService.WebApp.Client.Api.ProfileService>(cli
 builder.Services.AddHttpClient<SelfService.WebApp.Client.Api.NotificationService>(client =>
     client.BaseAddress = new Uri("https://localhost:7115"));
 
+builder.Services.AddHttpClient<SelfService.WebApp.Client.Api.ConsumptionService>(client =>
+    client.BaseAddress = new Uri("https://localhost:7115"));
+
 await builder.Build().RunAsync();

@@ -5,8 +5,8 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyName>MeterDataManagement.$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>MeterDataManagement.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Protobuf Include="..\SmartMeterAggregator\Protos\powermeterreading.proto" GrpcServices="Client">
+    <Protobuf Include="..\MeterDataCollector\Protos\powermeterreading.proto" GrpcServices="Client">
       <Link>Protos\powermeterreading.proto</Link>
     </Protobuf>
   </ItemGroup>
