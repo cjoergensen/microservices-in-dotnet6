@@ -1,5 +1,5 @@
 ﻿using ConsumptionNotificationSubscriptionService.Contracts.v1_0;
 
-namespace ConsumptionSubscriptionService.Contracts.Commands.v1_0;
+namespace ConsumptionSubscriptionService.Contracts.v1_0.Commands;
 
 public record SubscribeToAbnormalConsumptionNotifications(int CustomerId, CommunicationChannel CommunicationChannel);
