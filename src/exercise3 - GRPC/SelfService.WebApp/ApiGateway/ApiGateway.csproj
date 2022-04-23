@@ -11,10 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\exercise4 - Messaging\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\..\..\exercise4 - Messaging\CustomerProfileService\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\..\..\exercise4 - Messaging\MeterReadingService\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\..\..\exercise4 - Messaging\SelfService.WebApp\Shared\Shared.csproj" />
+    <ProjectReference Include="..\..\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\..\CustomerProfileService\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\..\MeterReadingService\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>

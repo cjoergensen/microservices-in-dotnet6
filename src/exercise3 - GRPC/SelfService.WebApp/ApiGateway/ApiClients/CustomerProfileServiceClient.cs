@@ -14,10 +14,10 @@ public class CustomerProfileServiceClient : ICustomerProfileServiceClient
         this.httpClient = httpClient;
     }
 
-    public async Task<Shared.Models.Profile> GetProfile(int customerId)
+    public async Task<Shared.Models.Profile> GetProfile(int profileId)
     {
-        var customerProfile = await GetCustomerProfile(customerId);
-        var notificationSettings = await GetNotificationSettings(customerId);
+        var customerProfile = await GetCustomerProfile(profileId);
+        var notificationSettings = await GetNotificationSettings(profileId);
 
         return new Shared.Models.Profile
         {

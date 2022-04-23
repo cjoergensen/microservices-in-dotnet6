@@ -1,0 +1,22 @@
+﻿@page "/consumption"
+
+<h3>Consumption</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 my-5">
+        @if(MeterReadings == null)
+        {
+                
+        }
+        else
+        {
+            <RadzenChart>
+                <RadzenLineSeries Smooth="true" Data="@MeterReadings" CategoryProperty="ReadingTime" Title="KwH" LineType="LineType.Solid" ValueProperty="Value">
+                    @*<RadzenMarkers MarkerType="MarkerType.Square" />*@
+                </RadzenLineSeries>
+            </RadzenChart>                
+        }
+        </div>
+    </div>
+</div>
