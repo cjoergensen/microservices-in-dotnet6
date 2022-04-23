@@ -17,10 +17,7 @@ Right-Click the In the _ConsumptionSubscriptionService / WebApi_ project and sel
 In the _Program.cs_ add this line:
 
 ```
-builder.Services.AddApiVersioning(o => 
-{
-    o.ReportApiVersions = true;
-});
+builder.Services.AddApiVersioning();
 ```
 
 Then updated the _Controllers / AbnormalConsumptionController.cs_ with these attributes:
@@ -38,3 +35,24 @@ Open the _SelfServiceWebApp / ApiGateWay / Program.cs_ file. And updated the uri
 ```
 builder.Services.AddHttpClient<IConsumptionNotificationSubscriptionServiceClient, ConsumptionNotificationSubscriptionServiceClient>(client => client.BaseAddress = new Uri("https://localhost:8002/api/v1.0/"));
 ```
+
+## Versioning - Using QueryString/
+
+Right-Click the In the _CustomerProfileService / WebApi_ project and select _Manage nuget packages_. Under the Browse tap search for _Microsoft.AspNetCore.Mvc.Versioning_ and install the latest version.
+
+In the _Program.cs_ add this line:
+
+```
+builder.Services.AddApiVersioning(o =>
+{
+    o.AssumeDefaultVersionWhenUnspecified = true;
+    o.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+    o.ReportApiVersions = true;
+    o.ApiVersionReader = ApiVersionReader.Combine(
+        new QueryStringApiVersionReader("api-version"),
+        new HeaderApiVersionReader("X-Version"),
+        new MediaTypeApiVersionReader("ver"));
+});
+```
+
+Since we are using the ``AssumeDefaultVersionWhenUnspecified = true`` and setting the default version 1.0, no changes are required for our consumers.
