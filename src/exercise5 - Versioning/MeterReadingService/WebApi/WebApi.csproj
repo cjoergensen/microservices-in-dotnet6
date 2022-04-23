@@ -4,17 +4,25 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-	<AssemblyName>ConsumptionNotificationSubscriptionService.$(MSBuildProjectName)</AssemblyName>
-	<RootNamespace>ConsumptionNotificationSubscriptionService.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <AssemblyName>MeterReadingService.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>MeterReadingService.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\PowerMeterReading.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\powermeterreading.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
     <PackageReference Include="NServiceBus.Extensions.Hosting" Version="1.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MeterReadingService\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
