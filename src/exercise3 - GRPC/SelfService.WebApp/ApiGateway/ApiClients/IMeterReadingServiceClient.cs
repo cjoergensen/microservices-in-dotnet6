@@ -1,9 +1,8 @@
 ﻿using MeterReadingService.Contracts;
 
-namespace SelfService.WebApp.ApiGateway.ApiClients
+namespace SelfService.WebApp.ApiGateway.ApiClients;
+
+public interface IMeterReadingServiceClient
 {
-    public interface IMeterReadingServiceClient
-    {
-        Task<IEnumerable<Shared.Models.MeterReading>> GetMeterReadings(int customerId, DateTimeOffset from, DateTimeOffset to);
-    }
+    Task<IEnumerable<Shared.Models.MeterReading>> GetMeterReadings(int customerId, DateTimeOffset from, DateTimeOffset to);
 }

@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\exercise4 - Messaging\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\..\..\exercise4 - Messaging\CustomerProfileService\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\..\..\exercise4 - Messaging\MeterDataManagement\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\..\..\exercise4 - Messaging\MeterReadingService\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\..\..\exercise4 - Messaging\SelfService.WebApp\Shared\Shared.csproj" />
   </ItemGroup>
 
