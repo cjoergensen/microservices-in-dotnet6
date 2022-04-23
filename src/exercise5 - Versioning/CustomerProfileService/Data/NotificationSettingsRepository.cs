@@ -1,4 +1,4 @@
-﻿using ConsumptionNotificationSubscriptionService.Contracts;
+﻿using ConsumptionNotificationSubscriptionService.Contracts.v1_0;
 using CustomerProfileService.Models;
 using LiteDB;
 

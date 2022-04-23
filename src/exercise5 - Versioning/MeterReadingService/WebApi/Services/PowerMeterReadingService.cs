@@ -1,6 +1,6 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
-using MeterReadingService.Contracts.Events;
+using MeterReadingService.Contracts.Events.v1_0;
 using MeterReadingService.Data;
 using MeterReadingService.Models;
 using NServiceBus;

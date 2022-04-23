@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerProfileService", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "exercise5 - Versioning\CustomerProfileService\WebApi\WebApi.csproj", "{2297549D-36A7-4BFB-9EF2-50B959271686}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "exercise5 - Versioning\CustomerProfileService\Contracts\Contracts.csproj", "{A17EFC4F-E908-47B7-BA4A-D8435585D8AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts.v1.0", "exercise5 - Versioning\CustomerProfileService\Contracts\Contracts.v1.0.csproj", "{A17EFC4F-E908-47B7-BA4A-D8435585D8AF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "exercise5 - Versioning\CustomerProfileService\Data\Data.csproj", "{26FB382D-B92D-401F-BA2A-8832026263A9}"
 EndProject

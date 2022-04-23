@@ -1,4 +1,4 @@
-﻿using CustomerProfileService.Contracts.Commands;
+﻿using CustomerProfileService.Contracts.v1_0.Commands;
 using CustomerProfileService.Data;
 
 

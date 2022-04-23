@@ -1,5 +1,5 @@
-﻿using ConsumptionNotificationSubscriptionService.Contracts;
-using ConsumptionSubscriptionService.Contracts.Commands;
+﻿using ConsumptionNotificationSubscriptionService.Contracts.v1_0;
+using ConsumptionSubscriptionService.Contracts.Commands.v1_0;
 using System.Text;
 using System.Text.Json;
 

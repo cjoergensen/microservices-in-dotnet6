@@ -18,7 +18,7 @@ public class MeterReadingController : Controller
     public IActionResult Get(int id, [FromQuery] DateTimeOffset from, [FromQuery] DateTimeOffset to)
     {
         var readings = repository.GetReadings(id, from, to);
-        var response = new Contracts.Queries.GetMeterReadingsResponse(id,
+        var response = new Contracts.Queries.v1_0.GetMeterReadingsResponse(id,
             readings.Select(
                 reading => new MeterReadingService.Contracts.MeterReading(reading.MeterId, reading.ReadingTime, reading.Value)));
 

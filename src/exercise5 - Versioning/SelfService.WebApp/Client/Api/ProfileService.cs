@@ -1,5 +1,4 @@
-﻿using CustomerProfileService.Contracts.Commands;
-using SelfService.WebApp.Shared.Models;
+﻿using SelfService.WebApp.Shared.Models;
 using System.Text;
 using System.Text.Json;
 

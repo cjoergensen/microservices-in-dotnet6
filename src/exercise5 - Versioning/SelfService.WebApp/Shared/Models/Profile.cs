@@ -1,4 +1,4 @@
-﻿using ConsumptionNotificationSubscriptionService.Contracts;
+﻿using ConsumptionNotificationSubscriptionService.Contracts.v1_0;
 using System.ComponentModel.DataAnnotations;
 
 namespace SelfService.WebApp.Shared.Models;

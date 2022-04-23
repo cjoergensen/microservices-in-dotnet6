@@ -1,5 +1,5 @@
-﻿using CustomerProfileService.Contracts.Commands;
-using CustomerProfileService.Contracts.Queries;
+﻿using CustomerProfileService.Contracts.v1_0.Commands;
+using CustomerProfileService.Contracts.v1_0.Queries;
 using System.Text;
 using System.Text.Json;
 
@@ -67,7 +67,7 @@ public class CustomerProfileServiceClient : ICustomerProfileServiceClient
         return getNotificationSettingsResponse;
     }
 
-    private async Task UpdateProfile(CustomerProfileService.Contracts.Commands.UpdateProfile command)
+    private async Task UpdateProfile(CustomerProfileService.Contracts.v1_0.Commands.UpdateProfile command)
     {
         var content = new StringContent(JsonSerializer.Serialize(command), Encoding.UTF8, "application/json");
         var httpResponse = await httpClient.PutAsync($"profile", content);

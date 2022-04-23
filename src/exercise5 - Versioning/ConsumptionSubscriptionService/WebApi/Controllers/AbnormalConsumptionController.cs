@@ -1,6 +1,6 @@
-using ConsumptionNotificationSubscriptionService.Contracts;
 using ConsumptionNotificationSubscriptionService.Data;
-using ConsumptionSubscriptionService.Contracts.Commands;
+using ConsumptionSubscriptionService.Contracts.Commands.v1_0;
+using ConsumptionSubscriptionService.Contracts.Queries.v1_0;
 
 namespace ConsumptionNotificationSubscriptionService.WebApi.Controllers;
 

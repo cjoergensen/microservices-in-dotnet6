@@ -1,4 +1,4 @@
-using CustomerProfileService.Contracts.Commands;
+using CustomerProfileService.Contracts.v1_0.Commands;
 using CustomerProfileService.Data;
 
 namespace CustomerProfileService.WebApi.Controllers;
@@ -25,7 +25,7 @@ public class NotificationSettingsController : ControllerBase
 
         var settings = notificationSettingsRepository.Get(id.Value);
         if(settings == null)
-            return new ObjectResult(new GetNotificationSettingsResponse(id.Value, ConsumptionNotificationSubscriptionService.Contracts.CommunicationChannel.Email));
+            return new ObjectResult(new GetNotificationSettingsResponse(id.Value, ConsumptionNotificationSubscriptionService.Contracts.v1_0.CommunicationChannel.Email));
 
         return new ObjectResult(new GetNotificationSettingsResponse(settings.CustomerId, settings.PreferedCommunicationChannel));
     }

@@ -4,14 +4,18 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>ConsumptionSubscriptionService.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-    <AssemblyName>ConsumptionNotificationSubscriptionService.Contracts</AssemblyName>
+    <AssemblyName>CustomerProfileService.Contracts.v1.0</AssemblyName>
+    <RootNamespace>CustomerProfileService.Contracts.v1_0</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Events\**" />
     <EmbeddedResource Remove="Events\**" />
     <None Remove="Events\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
   </ItemGroup>
 
 </Project>

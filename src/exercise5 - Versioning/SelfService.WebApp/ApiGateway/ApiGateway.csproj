@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\..\CustomerProfileService\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\..\CustomerProfileService\Contracts\Contracts.v1.0.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 

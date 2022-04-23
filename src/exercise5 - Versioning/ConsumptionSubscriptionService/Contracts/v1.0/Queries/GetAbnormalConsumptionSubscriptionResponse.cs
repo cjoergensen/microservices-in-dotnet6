@@ -1,5 +1,5 @@
-﻿using ConsumptionNotificationSubscriptionService.Contracts;
+﻿using ConsumptionNotificationSubscriptionService.Contracts.v1_0;
 
-namespace ConsumptionSubscriptionService.Contracts.Queries;
+namespace ConsumptionSubscriptionService.Contracts.Queries.v1_0;
 
 public record GetAbnormalConsumptionSubscriptionResponse(int CustomerId, CommunicationChannel CommunicationChannel, DateTimeOffset CreatedOn);
