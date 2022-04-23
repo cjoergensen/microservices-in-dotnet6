@@ -9,6 +9,11 @@ builder.Services.AddHttpClient<ICustomerProfileServiceClient, CustomerProfileSer
 builder.Services.AddHttpClient<IConsumptionNotificationSubscriptionServiceClient, ConsumptionNotificationSubscriptionServiceClient>(client =>
     client.BaseAddress = new Uri("https://localhost:8002"));
 
+builder.Services.AddHttpClient<IMeterReadingServiceClient, MeterReadingServiceClient>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:8003");
+    client.DefaultRequestVersion = new Version(2, 0);
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
