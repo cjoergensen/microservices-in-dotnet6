@@ -1,4 +1,5 @@
-﻿using SelfService.WebApp.Shared.Models;
+﻿
+using SelfService.WebApp.Shared.Models;
 using System.Text;
 using System.Text.Json;
 
