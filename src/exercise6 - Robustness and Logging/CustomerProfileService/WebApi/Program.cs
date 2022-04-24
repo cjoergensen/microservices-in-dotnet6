@@ -1,7 +1,10 @@
 using CustomerProfileService.Data;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog(Shared.Logging.LogFactory.BuildLogger());
+
 
 // Add services to the container.
 builder.Services.AddSingleton<INotificationSettingsRepository, NotificationSettingsRepository>();

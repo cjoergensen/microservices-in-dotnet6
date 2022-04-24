@@ -1,8 +1,11 @@
 using MeterReadingService.Data;
 using MeterReadingService.WebApi.Services;
 using NServiceBus;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog(Shared.Logging.LogFactory.BuildLogger());
+
 builder.Host.UseNServiceBus(context => 
 {
     var endpointConfiguration = new EndpointConfiguration("MeterReadingService");
