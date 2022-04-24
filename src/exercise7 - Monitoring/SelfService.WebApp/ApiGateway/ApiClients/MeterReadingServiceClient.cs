@@ -15,7 +15,7 @@ public class MeterReadingServiceClient : IMeterReadingServiceClient
 
     public async Task<IEnumerable<Shared.Models.MeterReading>> GetMeterReadings(int customerId, DateTimeOffset from, DateTimeOffset to)
     {
-        var httpResponse = await httpClient.GetAsync($"MeterReading/{customerId}?from={from:s}&to={to:s}&useFlicker=true");
+        var httpResponse = await httpClient.GetAsync($"MeterReading/{customerId}?from={from:s}&to={to:s}&useFlicker=false");
         httpResponse.EnsureSuccessStatusCode();
 
         var content = await httpResponse.Content.ReadAsStringAsync();
