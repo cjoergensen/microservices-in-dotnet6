@@ -55,10 +55,4 @@ builder.Services.AddApiVersioning(o =>
 });
 ```
 
-And this using statement:
-
-```
-using Microsoft.AspNetCore.Mvc.Versioning;
-```
-
 Since we are using the ``AssumeDefaultVersionWhenUnspecified = true`` and setting the default version 1.0, no changes are required for our consumers.
