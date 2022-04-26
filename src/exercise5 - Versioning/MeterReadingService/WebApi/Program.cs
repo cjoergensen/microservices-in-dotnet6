@@ -8,6 +8,14 @@ builder.Host.UseNServiceBus(context =>
     var endpointConfiguration = new EndpointConfiguration("MeterReadingService");
     endpointConfiguration.UseTransport<LearningTransport>();
     return endpointConfiguration;
+
+    // RabbitMQ: https://docs.particular.net/transports/rabbitmq/connection-settings
+    //var transport = endpointConfiguration.UseTransport<RabbitMQTransport>();
+    //transport.ConnectionString("My custom connection string");
+
+    // Azure Service Bus: https://docs.particular.net/transports/azure-service-bus/
+    //var transport = endpointConfiguration.UseTransport<AzureServiceBusTransport>();
+    //transport.ConnectionString("Endpoint=sb://[NAMESPACE].servicebus.windows.net/;SharedAccessKeyName=[KEYNAME];SharedAccessKey=[KEY]");
 });
 
 

@@ -7,6 +7,14 @@ builder.Host.UseNServiceBus(context =>
     var endpointConfiguration = new EndpointConfiguration("ConsumptionNotificationSubscriptionService");
     endpointConfiguration.UseTransport<LearningTransport>();
     return endpointConfiguration;
+
+    // RabbitMQ: https://docs.particular.net/transports/rabbitmq/connection-settings
+    //var transport = endpointConfiguration.UseTransport<RabbitMQTransport>();
+    //transport.ConnectionString("My custom connection string");
+
+    // Azure Service Bus: https://docs.particular.net/transports/azure-service-bus/
+    //var transport = endpointConfiguration.UseTransport<AzureServiceBusTransport>();
+    //transport.ConnectionString("Endpoint=sb://[NAMESPACE].servicebus.windows.net/;SharedAccessKeyName=[KEYNAME];SharedAccessKey=[KEY]");
 });
 // Add services to the container.
 builder.Services.AddSingleton<IAbnormalConsumptionSubscriptionRepository, AbnormalConsumptionSubscriptionRepository>();

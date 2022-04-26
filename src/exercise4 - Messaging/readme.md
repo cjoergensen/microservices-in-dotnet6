@@ -79,6 +79,24 @@ Build the project.
 
 ## Step 2 - Consume events
 
+
+open the _ConsumptionSubscriptionService / WebApi / Program.cs_ file and after the ``var builder = WebApplication.CreateBuilder(args);`` add this:
+
+```
+builder.Host.UseNServiceBus(context => 
+{
+    var endpointConfiguration = new EndpointConfiguration("MeterReadingService");
+    endpointConfiguration.UseTransport<LearningTransport>();
+    return endpointConfiguration;
+});
+```
+
+Also add this using statement:
+
+```
+using NServiceBus;
+```
+
 In the _ConsumptionSubscriptionService / WebApi_ project add a new _Services_ folder. In that folder add the class _AbnormalConsumptionService.cs_. Update the class with this code:
 
 ```
