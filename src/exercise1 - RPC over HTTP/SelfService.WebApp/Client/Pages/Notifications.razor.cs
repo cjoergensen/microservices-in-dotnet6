@@ -24,11 +24,11 @@ public partial class Notifications
         {
             var notificationSettings = await ProfileClient!.GetNotificationSettings(1);
             var communicationChannel = notificationSettings.PreferedCommunicationChannel;
-            await SubscriptionClient!.CreateSubscription(1, name, communicationChannel);
+            await SubscriptionClient!.SubcribeToNotification(1, name, communicationChannel);
             return;
         }
 
-        await SubscriptionClient!.DeleteSubscription(1, name);
+        await SubscriptionClient!.UnsubscribeFromNotification(1, name);
     }
 
 }
