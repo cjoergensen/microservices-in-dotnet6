@@ -366,4 +366,4 @@ public class NotificationSubscriptionServiceClient
 
 Build the solution. Right-Click the Solution in VS and select Properties. Select the 'Multiple startup projects' option and add  _WebApi (ConsumptionNotificationSubscriptionService\WebApi)_ to the list of startup projects. Press F5 to start the project.
 
-Navigate to the Notifications page and flip the 'Consumption alerts' switch and confirm that the change is persisted. test
+Navigate to the Notifications page and flip the 'Consumption alerts' switch and confirm that the change is persisted.
