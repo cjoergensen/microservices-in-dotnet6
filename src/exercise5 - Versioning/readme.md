@@ -62,3 +62,5 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 ```
 
 Since we are using the ``AssumeDefaultVersionWhenUnspecified = true`` and setting the default version 1.0, no changes are required for our consumers.
+
+For further details see (Api Versioning Wiki)[https://github.com/dotnet/aspnet-api-versioning/wiki]
