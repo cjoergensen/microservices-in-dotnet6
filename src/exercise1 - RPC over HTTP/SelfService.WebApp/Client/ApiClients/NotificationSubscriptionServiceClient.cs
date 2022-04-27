@@ -23,12 +23,12 @@ public class NotificationSubscriptionServiceClient
         return result;
     }
 
-    public Task CreateSubscription(int profileId, string subscriptionName, CommunicationChannel communicationChannel)
+    public Task SubcribeToNotification(int profileId, string subscriptionName, CommunicationChannel communicationChannel)
     {
         return Task.CompletedTask;
     }
 
-    public Task DeleteSubscription(int profileId, string subscriptionName)
+    public Task UnsubscribeFromNotification(int profileId, string subscriptionName)
     {
         return Task.CompletedTask;
     }
