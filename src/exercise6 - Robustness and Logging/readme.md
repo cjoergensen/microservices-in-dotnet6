@@ -62,7 +62,7 @@ Lets use the Retry and Circuit Breaker patterns to handle this in our ApiGateway
 
 Right-Click the  _SelfServiceWebApp / ApiGateway_ > _Manage Nuget Packages_ 
 
-Right-Click the In the _SelfServiceWebApp / ApiGateway_ project and select _Manage nuget packages_. Under the Browse tap search for _Microsoft.AspNetCore.Mvc.Versioning_ and install the latest version.
+Right-Click the In the _SelfServiceWebApp / ApiGateway_ project and select _Manage nuget packages_. Under the Browse tap search for _Microsoft.Extensions.Http.Polly_ and install the latest version.
 
 Then open the _SelfServiceWebApp / ApiGateway / Program.cs_ and these methods:
 
