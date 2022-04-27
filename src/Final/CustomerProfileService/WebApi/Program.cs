@@ -1,9 +1,16 @@
 using CustomerProfileService.Data;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using NServiceBus;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog(Shared.Logging.LogFactory.BuildLogger());
+builder.Host.UseNServiceBus(context =>
+{
+    var endpointConfiguration = new EndpointConfiguration("CustomerProfileService");
+    endpointConfiguration.UseTransport<LearningTransport>();
+    return endpointConfiguration;
+});
 
 
 // Add services to the container.

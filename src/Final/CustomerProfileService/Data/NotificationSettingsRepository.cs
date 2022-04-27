@@ -1,7 +1,9 @@
 ﻿using ConsumptionNotificationSubscriptionService.Contracts.v1_0;
+using CustomerProfileService.Contracts.v1_0.Events;
 using CustomerProfileService.Models;
 using LiteDB;
 using Microsoft.Extensions.Logging;
+using NServiceBus;
 
 namespace CustomerProfileService.Data;
 
@@ -10,10 +12,12 @@ public class NotificationSettingsRepository : INotificationSettingsRepository
     private const string DatabaseFile = "CustomerProfileService.db";
     private const string CollectionName = "notificationsettings";
     private readonly ILogger<NotificationSettingsRepository> logger;
+    private readonly IMessageSession messageSession;
 
-    public NotificationSettingsRepository(ILogger<NotificationSettingsRepository> logger)
+    public NotificationSettingsRepository(ILogger<NotificationSettingsRepository> logger, IMessageSession messageSession)
     {
         this.logger = logger;
+        this.messageSession = messageSession;
     }
     public NotificationSettings? Get(int customerId)
     {
@@ -21,7 +25,7 @@ public class NotificationSettingsRepository : INotificationSettingsRepository
         {
             logger.LogDebug("Retrieving '{typeName}'. Customer Id = '{customerId}'", nameof(NotificationSettings), customerId);
 
-            using var db = new LiteDatabase(DatabaseFile);
+            using var db = new LiteDatabase($"Filename={DatabaseFile};connection=shared");
             var subscriptions = db.GetCollection<NotificationSettings>(CollectionName);
             return Get(customerId, subscriptions);
         }
@@ -32,7 +36,7 @@ public class NotificationSettingsRepository : INotificationSettingsRepository
         }
     }
 
-    public void Update(int customerId, CommunicationChannel preferedCommunicationChannel)
+    public async Task Update(int customerId, CommunicationChannel preferedCommunicationChannel)
     {
         try
         {
@@ -48,10 +52,14 @@ public class NotificationSettingsRepository : INotificationSettingsRepository
                 return;
             }
 
+            bool updatedCommunicationChannel = notificationSettings.PreferedCommunicationChannel != preferedCommunicationChannel;
+
             notificationSettings.PreferedCommunicationChannel = preferedCommunicationChannel;
             settings.Update(notificationSettings);
             logger.LogInformation("Updated '{typeName}': {notificationSettings}", nameof(NotificationSettings), notificationSettings);
 
+            if(updatedCommunicationChannel)
+                await messageSession.Publish(new PreferedCommunicationChannelChanged(customerId, preferedCommunicationChannel, DateTimeOffset.Now));
         }
         catch (Exception e)
         {

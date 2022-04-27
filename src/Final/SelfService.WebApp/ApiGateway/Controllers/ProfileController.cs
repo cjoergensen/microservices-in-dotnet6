@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SelfService.WebApp.ApiGateway.ApiClients;
+using SelfService.WebApp.Data;
 
 namespace SelfService.WebApp.Backend.Controllers;
 
@@ -8,20 +9,22 @@ namespace SelfService.WebApp.Backend.Controllers;
 public class ProfileController : Controller
 {
     private readonly ICustomerProfileServiceClient serviceClient;
+    private readonly ICustomerProfileRepository repository;
 
-    public ProfileController(ICustomerProfileServiceClient serviceClient)
+    public ProfileController(ICustomerProfileServiceClient serviceClient, Data.ICustomerProfileRepository repository)
     {
         this.serviceClient = serviceClient;
+        this.repository = repository;
     }
 
     [HttpGet]
     [Route("{id?}")]
-    public async Task<IActionResult> Index(int? id)
+    public IActionResult Index(int? id)
     {
         if (!id.HasValue)
             return new BadRequestResult();
 
-        var profile = await serviceClient.GetProfile(id.Value);
+        var profile = repository.Get(id.Value);
         return new ObjectResult(profile);
     }
 

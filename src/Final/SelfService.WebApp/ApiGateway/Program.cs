@@ -1,16 +1,23 @@
+
+using NServiceBus;
 using Polly;
 using Polly.Extensions.Http;
 using SelfService.WebApp.ApiGateway.ApiClients;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseNServiceBus(context =>
+{
+    var endpointConfiguration = new EndpointConfiguration("SelfServiceWebApp.ApiGateway");
+    endpointConfiguration.UseTransport<LearningTransport>();
+    return endpointConfiguration;
+});
 
 // Add services to the container.
+builder.Services.AddSingleton<SelfService.WebApp.Data.ICustomerProfileRepository, SelfService.WebApp.Data.CustomerProfileRepository>();
 builder.Services.AddHttpClient<ICustomerProfileServiceClient, CustomerProfileServiceClient>(client =>
     client.BaseAddress = new Uri("https://localhost:8001"))
     .AddPolicyHandler((services, request) => GetRetryPolicy<MeterReadingServiceClient>(services))
     .AddPolicyHandler(GetCircuitBreakerPolicy<MeterReadingServiceClient>());
-
-
 
 builder.Services.AddHttpClient<IConsumptionNotificationSubscriptionServiceClient, ConsumptionNotificationSubscriptionServiceClient>(client =>
     client.BaseAddress = new Uri("https://localhost:8002/api/v1.0/"))

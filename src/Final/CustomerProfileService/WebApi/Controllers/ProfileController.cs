@@ -1,6 +1,6 @@
 ﻿using CustomerProfileService.Contracts.v1_0.Commands;
 using CustomerProfileService.Data;
-
+using NServiceBus;
 
 namespace CustomerProfileService.WebApi.Controllers;
 
@@ -32,7 +32,7 @@ public class ProfileController : Controller
     }
 
     [HttpPut]
-    public IActionResult Update([FromBody] UpdateProfile? updateCommand)
+    public async Task<IActionResult> Update([FromBody] UpdateProfile? updateCommand)
     {
         if (updateCommand == null)
             return new BadRequestResult();
@@ -41,7 +41,7 @@ public class ProfileController : Controller
         if (customerProfile == null)
             return new NotFoundResult();
 
-        repository.Update(updateCommand.CustomerId, updateCommand.Name, updateCommand.PhoneNumber, updateCommand.Email);
+        await repository.Update(updateCommand.CustomerId, updateCommand.Name, updateCommand.PhoneNumber, updateCommand.Email);
 
         return new NoContentResult();
     }

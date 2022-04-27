@@ -45,7 +45,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "Final\SelfSer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{083672EE-9840-4034-8952-8EFF62E2E281}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Final\Shared\Shared.Logging\Logging.csproj", "{0A820055-6464-4DD1-B7CA-8DE1BD656907}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging", "Final\Shared\Shared.Logging\Logging.csproj", "{0A820055-6464-4DD1-B7CA-8DE1BD656907}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway.Data", "Final\SelfService.WebApp\ApiGateway.Data\ApiGateway.Data.csproj", "{609E71F3-BFDC-4B59-9919-9405EABDB3E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +123,10 @@ Global
 		{0A820055-6464-4DD1-B7CA-8DE1BD656907}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A820055-6464-4DD1-B7CA-8DE1BD656907}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A820055-6464-4DD1-B7CA-8DE1BD656907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{609E71F3-BFDC-4B59-9919-9405EABDB3E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609E71F3-BFDC-4B59-9919-9405EABDB3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609E71F3-BFDC-4B59-9919-9405EABDB3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609E71F3-BFDC-4B59-9919-9405EABDB3E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,6 +148,7 @@ Global
 		{60B3AE47-B42E-4FD7-9130-69EC812511DA} = {6C6D2175-4EB7-4DB8-9A92-C13DBD7866A3}
 		{C713D3E7-B0A4-401D-9148-C81627C3E69A} = {2022503F-C48B-401D-9F6D-117A3650587C}
 		{0A820055-6464-4DD1-B7CA-8DE1BD656907} = {083672EE-9840-4034-8952-8EFF62E2E281}
+		{609E71F3-BFDC-4B59-9919-9405EABDB3E4} = {2022503F-C48B-401D-9F6D-117A3650587C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6765891C-426F-4410-8BF6-420089B76037}

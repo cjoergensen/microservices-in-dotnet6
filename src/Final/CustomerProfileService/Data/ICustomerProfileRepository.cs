@@ -5,6 +5,6 @@ namespace CustomerProfileService.Data
     public interface ICustomerProfileRepository
     {
         CustomerProfile Get(int customerId);
-        void Update(int customerId, string name, string phone, string email);
+        Task Update(int customerId, string name, string phone, string email);
     }
 }

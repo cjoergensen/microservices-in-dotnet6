@@ -6,6 +6,6 @@ namespace CustomerProfileService.Data
     public interface INotificationSettingsRepository
     {
         NotificationSettings? Get(int customerId);
-        void Update(int customerID, CommunicationChannel preferedCommunicationChannel);
+        Task Update(int customerID, CommunicationChannel preferedCommunicationChannel);
     }
 }

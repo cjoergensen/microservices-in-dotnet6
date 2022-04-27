@@ -5,6 +5,7 @@ namespace SelfService.WebApp.Shared.Models;
 
 public class Profile
 {
+    public int Id { get; set; }
     public int CustomerId { get; set; }
 
     [Required]
@@ -14,5 +15,4 @@ public class Profile
     [Required]
     public string Email { get; set; }
     public CommunicationChannel PreferedCommunicationChannel { get; set; }
-
 }
