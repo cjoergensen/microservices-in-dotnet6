@@ -5,43 +5,43 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SelfServiceWebApp", "SelfServiceWebApp", "{2022503F-C48B-401D-9F6D-117A3650587C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "exercise3 - GRPC\ConsumptionSubscriptionService\WebApi\WebApi.csproj", "{D8ABB72F-B23D-4856-8F66-A45522E963A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "ConsumptionSubscriptionService\WebApi\WebApi.csproj", "{D8ABB72F-B23D-4856-8F66-A45522E963A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConsumptionNotificationSubscriptionService", "ConsumptionNotificationSubscriptionService", "{D4E706AA-6303-471D-BCDF-FA77441B0E75}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "exercise3 - GRPC\ConsumptionSubscriptionService\Contracts\Contracts.csproj", "{0A484B52-2E82-4E5C-8ECF-3CC1029C386D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "ConsumptionSubscriptionService\Contracts\Contracts.csproj", "{0A484B52-2E82-4E5C-8ECF-3CC1029C386D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CustomerProfileService", "CustomerProfileService", "{2A689821-CFE3-4F6C-BF38-1C2A44239D3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "exercise3 - GRPC\CustomerProfileService\WebApi\WebApi.csproj", "{2297549D-36A7-4BFB-9EF2-50B959271686}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "CustomerProfileService\WebApi\WebApi.csproj", "{2297549D-36A7-4BFB-9EF2-50B959271686}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "exercise3 - GRPC\CustomerProfileService\Contracts\Contracts.csproj", "{A17EFC4F-E908-47B7-BA4A-D8435585D8AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "CustomerProfileService\Contracts\Contracts.csproj", "{A17EFC4F-E908-47B7-BA4A-D8435585D8AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "exercise3 - GRPC\CustomerProfileService\Data\Data.csproj", "{26FB382D-B92D-401F-BA2A-8832026263A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "CustomerProfileService\Data\Data.csproj", "{26FB382D-B92D-401F-BA2A-8832026263A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "exercise3 - GRPC\CustomerProfileService\Models\Models.csproj", "{C92AFBF1-B8F7-42AC-8A1D-30535C7CAAFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "CustomerProfileService\Models\Models.csproj", "{C92AFBF1-B8F7-42AC-8A1D-30535C7CAAFE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "exercise3 - GRPC\ConsumptionSubscriptionService\Data\Data.csproj", "{E2B148D3-005B-441E-A860-081ACF6E9926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "ConsumptionSubscriptionService\Data\Data.csproj", "{E2B148D3-005B-441E-A860-081ACF6E9926}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "exercise3 - GRPC\ConsumptionSubscriptionService\Models\Models.csproj", "{5CC4E98F-E3D1-45C3-88AC-CF6781505777}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "ConsumptionSubscriptionService\Models\Models.csproj", "{5CC4E98F-E3D1-45C3-88AC-CF6781505777}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "exercise3 - GRPC\SelfService.WebApp\ApiGateway\ApiGateway.csproj", "{4188E6DE-8BDF-49EC-AAA0-C9AD7513C3C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "SelfService.WebApp\ApiGateway\ApiGateway.csproj", "{4188E6DE-8BDF-49EC-AAA0-C9AD7513C3C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "exercise3 - GRPC\SelfService.WebApp\Shared\Shared.csproj", "{DC957D1B-B11F-40A9-B0F1-8435CCCA916B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "SelfService.WebApp\Shared\Shared.csproj", "{DC957D1B-B11F-40A9-B0F1-8435CCCA916B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "exercise3 - GRPC\SelfService.WebApp\Client\Client.csproj", "{C009AF92-0ED7-41BC-A47B-5191BBDA93E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "SelfService.WebApp\Client\Client.csproj", "{C009AF92-0ED7-41BC-A47B-5191BBDA93E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMeter", "exercise3 - GRPC\SmartMeter\SmartMeter.csproj", "{7B3D7E21-FB25-47C5-BDB7-B069375F86D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMeter", "SmartMeter\SmartMeter.csproj", "{7B3D7E21-FB25-47C5-BDB7-B069375F86D8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MeterReadingService", "MeterReadingService", "{0FCAF0D8-DE52-409F-8EF5-F9056B6B0E9E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "exercise3 - GRPC\MeterReadingService\Contracts\Contracts.csproj", "{9F582586-EC77-4C53-BAF2-2066319826EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "MeterReadingService\Contracts\Contracts.csproj", "{9F582586-EC77-4C53-BAF2-2066319826EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "exercise3 - GRPC\MeterReadingService\Data\Data.csproj", "{57788179-3208-4B28-A3C4-EFF36C534CA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "MeterReadingService\Data\Data.csproj", "{57788179-3208-4B28-A3C4-EFF36C534CA0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "exercise3 - GRPC\MeterReadingService\Models\Models.csproj", "{651855E1-09EB-488F-A733-4DC4B44E07D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "MeterReadingService\Models\Models.csproj", "{651855E1-09EB-488F-A733-4DC4B44E07D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "exercise3 - GRPC\MeterReadingService\WebApi\WebApi.csproj", "{6E4F6817-0693-4DDC-BCED-E2C34AB2D89D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "MeterReadingService\WebApi\WebApi.csproj", "{6E4F6817-0693-4DDC-BCED-E2C34AB2D89D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
