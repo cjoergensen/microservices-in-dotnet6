@@ -2,8 +2,8 @@ syntax = "proto3";
 
 option csharp_namespace = "MeterReadingService.WebApi";
 
-import "google/protobuf/Timestamp.proto";
-import "google/protobuf/Empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 service PowerMeterReading {
   rpc StreamPowerReadings (stream PowerMeterReadingMessage) returns (google.protobuf.Empty);
