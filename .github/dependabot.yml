@@ -17,3 +17,19 @@ updates:
     directory: "/src/exercise3 - GRPC" # Location of package manifests
     schedule:
       interval: "daily"      
+  - package-ecosystem: "nuget" # See documentation for possible values
+    directory: "/src/exercise4 - Messaging" # Location of package manifests
+    schedule:
+      interval: "daily"      
+  - package-ecosystem: "nuget" # See documentation for possible values
+    directory: "/src/exercise5 - Versioning" # Location of package manifests
+    schedule:
+      interval: "daily"            
+  - package-ecosystem: "nuget" # See documentation for possible values
+    directory: "/src/exercise6 - Robustness and Logging" # Location of package manifests
+    schedule:
+      interval: "daily"         
+  - package-ecosystem: "nuget" # See documentation for possible values
+    directory: "/src/Final" # Location of package manifests
+    schedule:
+      interval: "daily"           
