@@ -20,11 +20,7 @@ public static class ServiceCollectionExtentions
             .AddGrpcClientInstrumentation()
             .AddNServiceBusInstrumentation()
             .AddAspNetCoreInstrumentation()
-            .AddJaegerExporter(o =>
-            {
-                o.AgentHost = "localhost";
-                o.AgentPort = 9411; // use port number here
-            });
+            .AddZipkinExporter();
         });
 
         return services;
