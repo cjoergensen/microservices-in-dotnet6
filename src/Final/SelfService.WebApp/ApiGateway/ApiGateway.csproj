@@ -16,6 +16,7 @@
     <ProjectReference Include="..\..\ConsumptionSubscriptionService\Contracts\Contracts.csproj" />
     <ProjectReference Include="..\..\CustomerProfileService\Contracts\Contracts.v1.0.csproj" />
     <ProjectReference Include="..\..\MeterReadingService\Contracts\Contracts.csproj" />
+    <ProjectReference Include="..\..\Shared\Shared.Telemetry\Telemetry.csproj" />
     <ProjectReference Include="..\ApiGateway.Data\ApiGateway.Data.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>

@@ -2,6 +2,7 @@ using CustomerProfileService.Data;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using NServiceBus;
 using Serilog;
+using Shared.Telemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog(Shared.Logging.LogFactory.BuildLogger());
@@ -14,6 +15,7 @@ builder.Host.UseNServiceBus(context =>
 
 
 // Add services to the container.
+builder.Services.AddTelemetry("CustomerProfileService", "1.0.0");
 builder.Services.AddSingleton<INotificationSettingsRepository, NotificationSettingsRepository>();
 builder.Services.AddSingleton<ICustomerProfileRepository, CustomerProfileRepository>();
 builder.Services.AddControllers();

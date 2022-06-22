@@ -77,18 +77,4 @@ public class CustomerProfileServiceClient : ICustomerProfileServiceClient
 
         return getNotificationSettingsResponse;
     }
-
-    private async Task UpdateProfile(CustomerProfileService.Contracts.v1_0.Commands.UpdateProfile command)
-    {
-        var content = new StringContent(JsonSerializer.Serialize(command), Encoding.UTF8, "application/json");
-        var httpResponse = await httpClient.PutAsync($"profile", content);
-        httpResponse.EnsureSuccessStatusCode();
-    }
-
-    private async Task UpdateNotificationSettings(UpdateNotificationSettings command)
-    {
-        var content = new StringContent(JsonSerializer.Serialize(command), Encoding.UTF8, "application/json");
-        var httpResponse = await httpClient.PutAsync($"notificationsettings", content);
-        httpResponse.EnsureSuccessStatusCode();
-    }
 }

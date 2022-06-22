@@ -2,8 +2,13 @@ using MeterReadingService.Data;
 using MeterReadingService.WebApi.Services;
 using NServiceBus;
 using Serilog;
+using Shared.Telemetry;
+using System.Diagnostics;
 
+// Define some important constants to initialize tracing with
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTelemetry("MeterReadingService.WebApi", "1.0.0");
+// Configure important OpenTelemetry settings, the console exporter, and automatic instrumentation
 builder.Host.UseSerilog(Shared.Logging.LogFactory.BuildLogger());
 
 builder.Host.UseNServiceBus(context => 

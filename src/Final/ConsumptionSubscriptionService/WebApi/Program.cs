@@ -1,6 +1,7 @@
 using ConsumptionNotificationSubscriptionService.Data;
 using NServiceBus;
 using Serilog;
+using Shared.Telemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog(Shared.Logging.LogFactory.BuildLogger());
@@ -11,6 +12,7 @@ builder.Host.UseNServiceBus(context =>
     return endpointConfiguration;
 });
 // Add services to the container.
+builder.Services.AddTelemetry("ConsumptionNotificationSubscriptionService", "1.0.0");
 builder.Services.AddSingleton<IAbnormalConsumptionSubscriptionRepository, AbnormalConsumptionSubscriptionRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

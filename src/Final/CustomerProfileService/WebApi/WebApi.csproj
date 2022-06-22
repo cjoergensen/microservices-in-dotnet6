@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\Shared.Logging\Logging.csproj" />
+    <ProjectReference Include="..\..\Shared\Shared.Telemetry\Telemetry.csproj" />
     <ProjectReference Include="..\Contracts\Contracts.v1.0.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>

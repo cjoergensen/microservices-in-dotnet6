@@ -3,6 +3,7 @@ using NServiceBus;
 using Polly;
 using Polly.Extensions.Http;
 using SelfService.WebApp.ApiGateway.ApiClients;
+using Shared.Telemetry;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseNServiceBus(context =>
@@ -13,6 +14,7 @@ builder.Host.UseNServiceBus(context =>
 });
 
 // Add services to the container.
+builder.Services.AddTelemetry("SelfServiceWebApp.ApiGateway", "1.0.0");
 builder.Services.AddSingleton<SelfService.WebApp.Data.ICustomerProfileRepository, SelfService.WebApp.Data.CustomerProfileRepository>();
 builder.Services.AddHttpClient<ICustomerProfileServiceClient, CustomerProfileServiceClient>(client =>
     client.BaseAddress = new Uri("https://localhost:8001"))
