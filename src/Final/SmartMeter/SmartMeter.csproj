@@ -27,6 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.Telemetry\Telemetry.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Protobuf Include="..\MeterReadingService\WebApi\Protos\powermeterreading.proto" GrpcServices="Client">
       <Link>Protos\powermeterreading.proto</Link>
     </Protobuf>
