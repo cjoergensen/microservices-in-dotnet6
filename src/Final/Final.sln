@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "SelfService.WebAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMeter", "SmartMeter\SmartMeter.csproj", "{179EA1D4-805C-43EA-893F-49789B8D3D6D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "MeterReadingService\Contracts\Contracts.csproj", "{BE42162B-E0BA-4C27-819B-0EDB660201ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts.v1_0", "MeterReadingService\Contracts\Contracts.v1_0.csproj", "{BE42162B-E0BA-4C27-819B-0EDB660201ED}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "MeterReadingService\Data\Data.csproj", "{E257BA2E-30FC-4190-9758-944FDA0EDC7E}"
 EndProject

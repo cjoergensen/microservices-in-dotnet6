@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>MeterReadingService.$(MSBuildProjectName).1_0</AssemblyName>
+    <RootNamespace>MeterReadingService.$(MSBuildProjectName.Replace(" ", "_")).v1_0</RootNamespace>
+  </PropertyGroup>
+
+</Project>
