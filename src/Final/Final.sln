@@ -51,6 +51,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway.Data", "SelfServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telemetry", "Shared\Shared.Telemetry\Telemetry.csproj", "{3EB24AA1-E0C6-4FDD-80C7-D7E90C237A32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messaging", "Shared\Shared.Messaging\Messaging.csproj", "{463F54B7-8DE4-4DEF-9618-FCC5E02C55BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,10 @@ Global
 		{3EB24AA1-E0C6-4FDD-80C7-D7E90C237A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EB24AA1-E0C6-4FDD-80C7-D7E90C237A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EB24AA1-E0C6-4FDD-80C7-D7E90C237A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{463F54B7-8DE4-4DEF-9618-FCC5E02C55BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{463F54B7-8DE4-4DEF-9618-FCC5E02C55BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{463F54B7-8DE4-4DEF-9618-FCC5E02C55BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{463F54B7-8DE4-4DEF-9618-FCC5E02C55BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,6 +162,7 @@ Global
 		{0A820055-6464-4DD1-B7CA-8DE1BD656907} = {083672EE-9840-4034-8952-8EFF62E2E281}
 		{609E71F3-BFDC-4B59-9919-9405EABDB3E4} = {2022503F-C48B-401D-9F6D-117A3650587C}
 		{3EB24AA1-E0C6-4FDD-80C7-D7E90C237A32} = {083672EE-9840-4034-8952-8EFF62E2E281}
+		{463F54B7-8DE4-4DEF-9618-FCC5E02C55BD} = {083672EE-9840-4034-8952-8EFF62E2E281}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6765891C-426F-4410-8BF6-420089B76037}
