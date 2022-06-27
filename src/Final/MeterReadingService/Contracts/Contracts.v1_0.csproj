@@ -8,4 +8,8 @@
     <RootNamespace>MeterReadingService.$(MSBuildProjectName.Replace(" ", "_")).v1_0</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Shared.Messaging\Messaging.csproj" />
+  </ItemGroup>
+
 </Project>

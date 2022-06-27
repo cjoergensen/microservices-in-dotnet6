@@ -2,9 +2,10 @@
 using Grpc.Net.Client.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Shared.Logging;
 using Shared.Telemetry;
-using static MeterReadingService.WebApi.PowerMeterReading;
-
+using SmartMeter;
+using static PowerMeterReading;
 
 var defaultMethodConfig = new MethodConfig
 {
@@ -23,10 +24,11 @@ var defaultMethodConfig = new MethodConfig
     }
 };
 
-var hostBuilder = new HostBuilder()
-    .ConfigureServices(services =>
+var hostBuilder = new HostBuilder();
+hostBuilder.UseLogging();
+hostBuilder.ConfigureServices(services =>
     {
-        services.AddHostedService<SmartMeter.MeterReadingService>();
+        services.AddHostedService<MeterReadingService>();
         services.AddTelemetry("SmartMeter", "1.0.0");
         services.AddGrpcClient<PowerMeterReadingClient>(o => {
             o.Address = new Uri("https://localhost:8003");

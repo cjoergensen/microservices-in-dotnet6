@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-option csharp_namespace = "MeterReadingService.WebApi";
-
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 

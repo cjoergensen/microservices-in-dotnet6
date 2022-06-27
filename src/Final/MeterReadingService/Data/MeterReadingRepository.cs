@@ -40,7 +40,6 @@ public class MeterReadingRepository : IMeterReadingRepository
         readings.EnsureIndex(reading => reading.CustomerId);
         readings.EnsureIndex(reading => reading.ReadingTime);
 
-
         return readings.Find(reading =>
             reading.CustomerId == customerId && reading.ReadingTime >= from && reading.ReadingTime <= to).ToList();
     }

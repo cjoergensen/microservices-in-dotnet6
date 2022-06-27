@@ -1,7 +1,9 @@
-﻿using MeterReadingService.Data;
+﻿using MeterReadingService.Contracts.v1_0;
+using MeterReadingService.Contracts.v1_0.Queries;
+using MeterReadingService.Data;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MeterReadingService.WebApi.Controllers;
+namespace MeterReadingService.WebApi.Controllers.v1_0;
 
 [ApiController]
 [Route("[controller]")]
@@ -17,7 +19,7 @@ public class MeterReadingController : Controller
     [Route("{id?}")]
     public async Task<IActionResult> Get(int id, [FromQuery] DateTimeOffset from, [FromQuery] DateTimeOffset to, [FromQuery] bool useFlicker = false)
     {
-        if(useFlicker)
+        if (useFlicker)
         {
             // simulate flickering..
             var random = new Random();
@@ -30,9 +32,9 @@ public class MeterReadingController : Controller
         }
 
         var readings = repository.GetReadings(id, from, to);
-        var response = new Contracts.Queries.v1_0.GetMeterReadingsResponse(id,
+        var response = new GetMeterReadingsResponse(id,
             readings.Select(
-                reading => new MeterReadingService.Contracts.MeterReading(reading.MeterId, reading.ReadingTime, reading.Value)));
+                reading => new MeterReading(reading.MeterId, reading.ReadingTime, reading.Value)));
 
         return new ObjectResult(response);
     }

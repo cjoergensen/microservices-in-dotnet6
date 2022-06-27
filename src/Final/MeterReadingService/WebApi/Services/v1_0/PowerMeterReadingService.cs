@@ -1,12 +1,12 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
-using MeterReadingService.Contracts.Events.v1_0;
+using MeterReadingService.Contracts.v1_0.Events;
 using MeterReadingService.Data;
 using MeterReadingService.Models;
 using NServiceBus;
-using static MeterReadingService.WebApi.PowerMeterReading;
+using static PowerMeterReading;
 
-namespace MeterReadingService.WebApi.Services;
+namespace MeterReadingService.WebApi.Services.v1_0;
 
 public class PowerMeterReadingService : PowerMeterReadingBase
 {
@@ -40,7 +40,8 @@ public class PowerMeterReadingService : PowerMeterReadingBase
 
     public async override Task<Empty> AbnormalPowerConsumptionDetected(PowerMeterReadingMessage request, ServerCallContext context)
     {
-        await messageSession.Publish(new AbnormalConsumptionDetected(request.CustomerId, request.MeterId, request.ReadingTime.ToDateTimeOffset(), request.Value));
+        await messageSession.Publish(
+            new AbnormalConsumptionDetected(request.CustomerId, request.MeterId, request.ReadingTime.ToDateTimeOffset(), request.Value, Guid.NewGuid().ToString(), Guid.NewGuid().ToString(), request.ReadingTime.ToDateTimeOffset()));
         return new Empty();
     }
 }

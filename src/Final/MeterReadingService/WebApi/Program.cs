@@ -1,35 +1,21 @@
 using MeterReadingService.Data;
-using MeterReadingService.WebApi.Services;
+using MeterReadingService.WebApi.Services.v1_0;
 using NServiceBus;
-using Serilog;
+using Shared.Logging;
+using Shared.Messaging;
 using Shared.Telemetry;
-using System.Diagnostics;
 
-// Define some important constants to initialize tracing with
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddTelemetry("MeterReadingService.WebApi", "1.0.0");
-// Configure important OpenTelemetry settings, the console exporter, and automatic instrumentation
-builder.Host.UseSerilog(Shared.Logging.LogFactory.BuildLogger());
-
-builder.Host.UseNServiceBus(context => 
-{
-    var endpointConfiguration = new EndpointConfiguration("MeterReadingService");
-    endpointConfiguration.UseTransport<LearningTransport>();
-    return endpointConfiguration;
-});
-
-
-// Additional configuration is required to successfully run gRPC on macOS.
-// For instructions on how to configure Kestrel and gRPC clients on macOS, visit https://go.microsoft.com/fwlink/?linkid=2099682
+builder.Host.UseLogging();
+builder.Host.UseNServiceBus("MeterReadingService.v1_0");
 
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IMeterReadingRepository, MeterReadingRepository>();
-
+builder.Services.AddTelemetry("MeterReadingService.WebApi", "1.0.0");
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 builder.Services.AddCors(policy =>
 {
     policy.AddPolicy("CorsPolicy", opt => opt
@@ -37,6 +23,7 @@ builder.Services.AddCors(policy =>
         .AllowAnyHeader()
         .AllowAnyMethod());
 });
+
 
 var app = builder.Build();
 
@@ -48,14 +35,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
-// Configure the HTTP request pipeline.
 app.MapGrpcService<PowerMeterReadingService>();
 app.MapControllers();
 app.UseCors("CorsPolicy");
-
-
 
 app.Run();

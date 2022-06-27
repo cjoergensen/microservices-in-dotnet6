@@ -1,30 +1,37 @@
 ﻿using Grpc.Core;
-using MeterReadingService.WebApi;
 using Microsoft.Extensions.Hosting;
-using static MeterReadingService.WebApi.PowerMeterReading;
+using Microsoft.Extensions.Logging;
+using static PowerMeterReading;
 
 namespace SmartMeter;
 
 internal class MeterReadingService : BackgroundService
 {
+    private readonly ILogger<MeterReadingService> logger;
     private readonly PowerMeterReadingClient client;
 
-    public MeterReadingService(PowerMeterReadingClient client)
+    public MeterReadingService(ILogger<MeterReadingService> logger, PowerMeterReadingClient client)
     {
+        this.logger = logger;
         this.client = client;
+    }
+
+    public override Task StartAsync(CancellationToken cancellationToken)
+    {
+        logger.LogInformation("MeterReadingService is starting");
+        return base.StartAsync(cancellationToken);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        logger.LogInformation("MeterReadingService is executing");
+
         Random consumptionRandom = new();
         double value = 0;
         
         //var stream = client.StreamPowerReadings(cancellationToken: stoppingToken);
         while (!stoppingToken.IsCancellationRequested)
         {
-            Console.WriteLine("Reading meter value");
-            Console.WriteLine($"Date:\t\t\t\t{DateTimeOffset.Now:G}");
-
             var consumption = Math.Round(consumptionRandom.NextDouble(), 2);
             value += consumption;
             value = Math.Round(value, 2);
@@ -33,8 +40,6 @@ internal class MeterReadingService : BackgroundService
             {
                 value += 20;
                 value = Math.Round(value, 2);
-
-                Console.ForegroundColor = ConsoleColor.Red;
                 await client.AbnormalPowerConsumptionDetectedAsync(new PowerMeterReadingMessage
                 {
                     CustomerId = 1,
@@ -44,8 +49,7 @@ internal class MeterReadingService : BackgroundService
                 }, cancellationToken: stoppingToken);
             }
 
-            Console.WriteLine($"Value:\t\t\t\t{value}");
-            Console.ResetColor();
+            logger.LogInformation("Meter value: {value}", value);
             try
             {
                 var call = client.AddPowerReadingAsync(new PowerMeterReadingMessage
@@ -57,18 +61,19 @@ internal class MeterReadingService : BackgroundService
                 }, cancellationToken: stoppingToken);                
 
                 await call;
-                Console.WriteLine($"Data transmission:\t\tOK {await GetRetryCount(call.ResponseHeadersAsync)}");
             }
             catch (RpcException ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Data transmission:\t\tFAIL - {ex.Message}");
-                Console.ResetColor();
+                logger.LogError(ex, "Unable to send power reading");
             }
-
-            Console.WriteLine("--------------");
             await Task.Delay(5000, stoppingToken);
         }
+    }
+
+    public override Task StopAsync(CancellationToken cancellationToken)
+    {
+        logger.LogInformation("MeterReadingService is stopping");
+        return base.StopAsync(cancellationToken); 
     }
 
     private static async Task<string> GetRetryCount(Task<Metadata> responseHeadersTask)
