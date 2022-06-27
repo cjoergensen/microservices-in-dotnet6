@@ -12,7 +12,7 @@ internal class MeterReadingService : BackgroundService
     public MeterReadingService()
     {
         var channel = GrpcChannel.ForAddress("https://localhost:8003");
-        this.client = new PowerMeterReadingClient(channel);
+        client = new PowerMeterReadingClient(channel);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -27,33 +27,12 @@ internal class MeterReadingService : BackgroundService
             value += consumption;
             value = Math.Round(value, 2);
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{DateTimeOffset.Now:G}: {value}");
-            
-            await stream.RequestStream.WriteAsync(new PowerMeterReadingMessage
-            {
-                CustomerId = 1,
-                MeterId = Guid.NewGuid().ToString(),
-                ReadingTime = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTimeOffset(DateTimeOffset.Now),
-                Value = value
-            });
-
             if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Enter)
             {
                 value += 20;
                 value = Math.Round(value, 2);
 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"{DateTimeOffset.Now:G}: {value}");
-
-                await stream.RequestStream.WriteAsync(new PowerMeterReadingMessage
-                {
-                    CustomerId = 1,
-                    MeterId = Guid.NewGuid().ToString(),
-                    ReadingTime = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTimeOffset(DateTimeOffset.Now),
-                    Value = value
-                });
-
                 await client.AbnormalPowerConsumptionDetectedAsync(new PowerMeterReadingMessage
                 {
                     CustomerId = 1,
@@ -61,8 +40,19 @@ internal class MeterReadingService : BackgroundService
                     ReadingTime = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTimeOffset(DateTimeOffset.Now),
                     Value = value
                 }, cancellationToken: stoppingToken);
-                Console.ResetColor();
+
             }
+
+            await stream.RequestStream.WriteAsync(new PowerMeterReadingMessage
+            {
+                CustomerId = 1,
+                MeterId = Guid.NewGuid().ToString(),
+                ReadingTime = Google.Protobuf.WellKnownTypes.Timestamp.FromDateTimeOffset(DateTimeOffset.Now),
+                Value = value
+            }, stoppingToken);
+
+            Console.WriteLine($"{DateTimeOffset.Now:G}: {value}");
+            Console.ResetColor();
             await Task.Delay(5000, stoppingToken);
         }
 
