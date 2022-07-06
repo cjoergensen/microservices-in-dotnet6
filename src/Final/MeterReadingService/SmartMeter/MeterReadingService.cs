@@ -75,11 +75,4 @@ internal class MeterReadingService : BackgroundService
         logger.LogInformation("MeterReadingService is stopping");
         return base.StopAsync(cancellationToken); 
     }
-
-    private static async Task<string> GetRetryCount(Task<Metadata> responseHeadersTask)
-    {
-        var headers = await responseHeadersTask;
-        var previousAttemptCount = headers.GetValue("grpc-previous-rpc-attempts");
-        return previousAttemptCount != null ? $" - Retry count: {previousAttemptCount}" : string.Empty;
-    }
 }
