@@ -5,20 +5,19 @@ namespace AcmePowerSolutions.MeterDataManagement.Api.Controllers.v1_0;
 
 [ApiController]
 [Route("[controller]")]
-public class MeterReadingController : Controller
+public class ConsumptionController : Controller
 {
     private readonly IConsumptionQueries consumptionQueries;
 
-    public MeterReadingController(IConsumptionQueries consumptionQueries)
+    public ConsumptionController(IConsumptionQueries consumptionQueries)
     {
         this.consumptionQueries = consumptionQueries;
     }
 
     [HttpGet]
-    [Route("{id?}")]
-    public async Task<IActionResult> Get(int id, [FromQuery] DateTimeOffset from, [FromQuery] DateTimeOffset to)
+    public async Task<IActionResult> Get(int customerId, [FromQuery] DateTimeOffset from, [FromQuery] DateTimeOffset to)
     {
-        var viewModel = await consumptionQueries.GetConsumptionInPeriode(id, from, to);
+        var viewModel = await consumptionQueries.GetConsumptionInPeriode(customerId, from, to);
         return new ObjectResult(viewModel);
     }
 }

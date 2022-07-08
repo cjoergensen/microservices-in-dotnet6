@@ -6,10 +6,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>AcmePowerSolutions.MeterDataManagement.Api</AssemblyName>
     <RootNamespace>AcmePowerSolutions.MeterDataManagement.Api</RootNamespace>
+    <UserSecretsId>8504b43c-b95e-4021-8c46-ae9185df2e0a</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.46.0" />
+    <PackageReference Include="Marten" Version="5.6.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.16.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
   </ItemGroup>
 

@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "None",
+      "composeLaunchServiceName": "meterdatamanagement.meter",
+      "serviceActions": {
+        "meterdatamanagement.api": "StartDebugging",
+        "meterdatamanagement.meter": "StartDebugging"
+      }
+    }
+  }
+}

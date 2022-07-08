@@ -36,7 +36,7 @@ internal class AutomaticMeterReadingService : BackgroundService
             value += consumption;
             value = Math.Round(value, 2);
 
-            if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Enter)
+            if (!Console.IsInputRedirected && Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Enter)
             {
                 value += 20;
                 value = Math.Round(value, 2);

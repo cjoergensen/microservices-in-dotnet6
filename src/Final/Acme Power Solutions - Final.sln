@@ -54,6 +54,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeterDataManagement.Api", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeterDataManagement.Contracts.v1_0", "MeterDataManagement\MeterDataManagement.Contracts.v1_0\MeterDataManagement.Contracts.v1_0.csproj", "{0E7B5185-EBC2-4D90-9A26-4852B6DE9A69}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{26995791-A345-44C0-B459-750E07A37E63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -132,6 +134,10 @@ Global
 		{0E7B5185-EBC2-4D90-9A26-4852B6DE9A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E7B5185-EBC2-4D90-9A26-4852B6DE9A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E7B5185-EBC2-4D90-9A26-4852B6DE9A69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26995791-A345-44C0-B459-750E07A37E63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26995791-A345-44C0-B459-750E07A37E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26995791-A345-44C0-B459-750E07A37E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26995791-A345-44C0-B459-750E07A37E63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

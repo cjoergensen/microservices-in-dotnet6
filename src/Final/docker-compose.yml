@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  meterdatamanagement.api:
+    image: ${DOCKER_REGISTRY:-acmepowersolutions/}meterdatamanagement-api:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: MeterDataManagement/MeterDataManagement.Api/Dockerfile
+
+  meterdatamanagement.meter:
+    image: ${DOCKER_REGISTRY:-acmepowersolutions/}meterdatamanagement-meter:${PLATFORM:-linux}-${TAG:-latest}
+    build:
+      context: .
+      dockerfile: MeterDataManagement/MeterDataManagement.Meter/Dockerfile

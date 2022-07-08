@@ -5,7 +5,7 @@ using AcmePowerSolutions.MeterDataManagement.Api.Grpc.v1_0;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseLogging();
-builder.Host.UseNServiceBus("MeterReadingService.v1_0");
+//builder.Host.UseNServiceBus("MeterReadingService.v1_0");
 
 // Add services to the container.
 builder.Services.AddGrpc();
