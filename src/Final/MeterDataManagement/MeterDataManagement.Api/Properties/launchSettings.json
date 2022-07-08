@@ -1,10 +1,12 @@
 ﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+
   "profiles": {
-    "SmartMeterAggregator": {
+    "MeterDataManagement.Api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": false,
-      "applicationUrl": "https://localhost:8003",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:5030",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

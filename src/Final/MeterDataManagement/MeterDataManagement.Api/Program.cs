@@ -1,9 +1,7 @@
-using MeterReadingService.Data;
-using MeterReadingService.WebApi.Services.v1_0;
-using NServiceBus;
 using Shared.Logging;
-using Shared.Messaging;
 using Shared.Telemetry;
+using Shared.Messaging;
+using AcmePowerSolutions.MeterDataManagement.Api.Grpc.v1_0;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseLogging();
@@ -12,7 +10,6 @@ builder.Host.UseNServiceBus("MeterReadingService.v1_0");
 // Add services to the container.
 builder.Services.AddGrpc();
 builder.Services.AddControllers();
-builder.Services.AddSingleton<IMeterReadingRepository, MeterReadingRepository>();
 builder.Services.AddTelemetry("MeterReadingService.WebApi", "1.0.0");
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

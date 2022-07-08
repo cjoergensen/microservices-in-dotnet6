@@ -1,16 +1,16 @@
 ﻿using Grpc.Core;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using static PowerMeterReading;
+using AcmePowerSolutions.MeterDataManagement.Proto;
 
-namespace SmartMeter;
+namespace AcmePowerSolutions.MeterDataManagement.Meter.Services;
 
-internal class MeterReadingService : BackgroundService
+internal class AutomaticMeterReadingService : BackgroundService
 {
-    private readonly ILogger<MeterReadingService> logger;
-    private readonly PowerMeterReadingClient client;
+    private readonly ILogger<AutomaticMeterReadingService> logger;
+    private readonly PowerMeterReading.PowerMeterReadingClient client;
 
-    public MeterReadingService(ILogger<MeterReadingService> logger, PowerMeterReadingClient client)
+    public AutomaticMeterReadingService(ILogger<AutomaticMeterReadingService> logger, PowerMeterReading.PowerMeterReadingClient client)
     {
         this.logger = logger;
         this.client = client;
@@ -24,7 +24,7 @@ internal class MeterReadingService : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        logger.LogInformation("MeterReadingService is executing");
+        logger.LogInformation("AutomaticMeterReadingService is executing");
 
         Random consumptionRandom = new();
         double value = 0;
@@ -72,7 +72,7 @@ internal class MeterReadingService : BackgroundService
 
     public override Task StopAsync(CancellationToken cancellationToken)
     {
-        logger.LogInformation("MeterReadingService is stopping");
+        logger.LogInformation("AutomaticMeterReadingService is stopping");
         return base.StopAsync(cancellationToken); 
     }
 }

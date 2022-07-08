@@ -7,6 +7,7 @@ public static class HostBuilderExtensions
         {
             var endpointConfiguration = new EndpointConfiguration(endpointName);
             endpointConfiguration.UseTransport<LearningTransport>();
+            endpointConfiguration.EnableInstallers();
             return endpointConfiguration;
         });
 
