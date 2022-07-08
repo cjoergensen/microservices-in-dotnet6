@@ -6,9 +6,21 @@ services:
     build:
       context: .
       dockerfile: MeterDataManagement/MeterDataManagement.Api/Dockerfile
+    depends_on:
+    - meterdatamanagement.postgresql
 
   meterdatamanagement.meter:
     image: ${DOCKER_REGISTRY:-acmepowersolutions/}meterdatamanagement-meter:${PLATFORM:-linux}-${TAG:-latest}
     build:
       context: .
       dockerfile: MeterDataManagement/MeterDataManagement.Meter/Dockerfile
+
+  meterdatamanagement.postgresql:
+    image: "ionx/postgres-plv8:12.2"
+    ports: 
+    - "5432:5432"
+    environment:
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_DB: meterdatamanagement
+        NAMEDATALEN: 100
