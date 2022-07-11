@@ -21,7 +21,7 @@ public class ConsumptionQueries : IConsumptionQueries
         {
             var readings = querySession.Query<MeterReading>().Where(r => r.CustomerId == customerId && r.ReadingTime >= from && r.ReadingTime <= to);
             return Task.FromResult(new ConsumptionViewModel(customerId, from, to, readings.Sum(r => r.Value), 
-                readings.Select(r => new MeterReadingViewModel(r.ReadingTime, r.Value)).OrderBy(nameof(MeterReading.ReadingTime)));
+                readings.Select(r => new MeterReadingViewModel(r.ReadingTime, r.Value)).OrderBy(nameof(MeterReading.ReadingTime))));
         }
         catch (Exception ex)
         {
