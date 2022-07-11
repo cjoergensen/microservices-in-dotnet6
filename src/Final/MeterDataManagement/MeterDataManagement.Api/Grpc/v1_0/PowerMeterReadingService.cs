@@ -13,18 +13,17 @@ public class PowerMeterReadingService : PowerMeterReadingBase
     private readonly IMeterReadingRepository repository;
     private readonly IMessageSession messageSession;
 
-    public PowerMeterReadingService(ILogger<PowerMeterReadingService> logger, IMeterReadingRepository repository, IMessageSession messageSession)
+    public PowerMeterReadingService(ILogger<PowerMeterReadingService> logger, IMeterReadingRepository repository)
     {
         this.logger = logger;
         this.repository = repository;
-        this.messageSession = messageSession;
     }
 
     public override async Task<Empty> AddPowerReading(PowerMeterReadingMessage message, ServerCallContext context)
     {
         logger.LogDebug("Handling '{messageType}'. Message was: {request}", nameof(PowerMeterReadingMessage), message);
         await repository.AddMeterReading(
-            new MeterReading(message.CustomerId, message.MeterId, message.ReadingTime.ToDateTimeOffset(), message.Value));
+            new MeterReading(Guid.NewGuid(), message.CustomerId, message.MeterId, message.ReadingTime.ToDateTimeOffset(), message.Value));
         
         return new Empty();
     }

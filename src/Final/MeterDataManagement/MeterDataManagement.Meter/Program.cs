@@ -7,8 +7,6 @@ using Microsoft.Extensions.Hosting;
 using Shared.Logging;
 using Shared.Telemetry;
 using System.Net.Security;
-using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
 
 
 
