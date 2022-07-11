@@ -2,5 +2,5 @@
 
 public interface IConsumptionQueries
 {
-    Task<ConsumptionViewModel> GetConsumptionInPeriode(int CustomerId, DateTimeOffset From, DateTimeOffset To);
+    Task<ConsumptionViewModel> GetConsumptionInPeriode(int customerId, DateTimeOffset from, DateTimeOffset to);
 }

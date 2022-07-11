@@ -25,7 +25,7 @@ public class MartenMeterReadingRepository : IMeterReadingRepository
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Unable to Add Meter Reading. Exception was: {exceptionMessage}", ex.Message);
+            logger.LogError(ex, "Error occured while adding '{documentType}'. Exception was: {exceptionMessage}", nameof(MeterReading), ex.Message);
             throw;
         }
     }

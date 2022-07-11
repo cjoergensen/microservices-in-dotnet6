@@ -5,6 +5,7 @@ using Marten;
 using AcmePowerSolutions.MeterDataManagement.Api.Model;
 using AcmePowerSolutions.MeterDataManagement.Api.Infrastructure.Repositories;
 using Weasel.Core;
+using AcmePowerSolutions.MeterDataManagement.Api.Queries;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseLogging();
@@ -22,6 +23,7 @@ builder.Services.AddTelemetry("MeterReadingService.WebApi", "1.0.0");
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IMeterReadingRepository, MartenMeterReadingRepository>();
+builder.Services.AddScoped<IConsumptionQueries, ConsumptionQueries>();
 builder.Services.AddCors(policy =>
 {
     policy.AddPolicy("CorsPolicy", opt => opt
