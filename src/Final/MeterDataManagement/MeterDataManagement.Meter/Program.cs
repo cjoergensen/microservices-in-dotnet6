@@ -9,13 +9,14 @@ using Shared.Telemetry;
 using System.Net.Security;
 
 
+const string ServiceName = "AcmePowerSolutions.SmartMeter";
 
 var hostBuilder = Host.CreateDefaultBuilder(args);
-hostBuilder.UseLogging();
+hostBuilder.UseLogging(ServiceName);
 hostBuilder.ConfigureServices((context,services) =>
 {
     services.AddHostedService<AutomaticMeterReadingService>();
-    services.AddTelemetry("SmartMeter", "1.0.0");
+    services.AddTelemetry(ServiceName, "1.0.0");
  
     var httpClientBuilder = services.AddGrpcClient<PowerMeterReading.PowerMeterReadingClient>(o =>
     {

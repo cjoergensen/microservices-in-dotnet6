@@ -7,9 +7,12 @@ using AcmePowerSolutions.MeterDataManagement.Api.Infrastructure.Repositories;
 using Weasel.Core;
 using AcmePowerSolutions.MeterDataManagement.Api.Queries;
 
+
+const string ServiceName = "AcmePowerSolutions.MeterReadingService.WebApi";
+
 var builder = WebApplication.CreateBuilder(args);
-builder.Host.UseLogging();
-//builder.Host.UseNServiceBus("MeterReadingService.v1_0");
+builder.Host.UseLogging(ServiceName);
+//builder.Host.UseNServiceBus("MeterReadingService.WebApi");
 
 // Add services to the container.
 builder.Services.AddMarten(options =>
@@ -19,7 +22,7 @@ builder.Services.AddMarten(options =>
 });
 builder.Services.AddGrpc();
 builder.Services.AddControllers();
-builder.Services.AddTelemetry("MeterReadingService.WebApi", "1.0.0");
+builder.Services.AddTelemetry(ServiceName, "1.0.0");
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IMeterReadingRepository, MartenMeterReadingRepository>();
