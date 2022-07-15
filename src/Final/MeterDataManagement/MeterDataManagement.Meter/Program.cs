@@ -9,7 +9,7 @@ using Shared.Telemetry;
 using System.Net.Security;
 
 
-const string ServiceName = "AcmePowerSolutions.SmartMeter";
+const string ServiceName = "AcmePowerSolutions.MeterDataManagement.Meter";
 
 var hostBuilder = Host.CreateDefaultBuilder(args);
 hostBuilder.UseLogging(ServiceName);
